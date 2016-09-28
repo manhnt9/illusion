@@ -13,8 +13,14 @@ TEMPLATE = app
 CONFIG   += c++11
 
 
-SOURCES  += main.cpp \
-            illusion/iloperation.cpp
+SOURCES  += \
+    main.cpp \
+    illusion/iloperation.cpp \
+    illusion/iltcpoperation.cpp \
+    illusion/illusion.cpp
 
 HEADERS  += \
-            illusion/iloperation.h
+    illusion/illusion.hpp \
+    illusion/iloperation.hpp \
+    illusion/iltcpoperation.hpp \
+    illusion/illusion.ipp
