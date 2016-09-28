@@ -21,9 +21,9 @@ SOURCES  += \
 
 HEADERS  += \
     illusion/illusion.hpp \
-    illusion/iloperation.hpp \
-    illusion/iltcpoperation.hpp \
     illusion/illusion.ipp \
-    illusion/iltcpoperation.ipp \
+    illusion/iloperation.hpp \
     illusion/iloperation.ipp \
+    illusion/iltcpoperation.hpp \
+    illusion/iltcpoperation.ipp \
     illusion/ilstate.h

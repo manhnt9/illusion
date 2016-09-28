@@ -41,13 +41,13 @@ signals:
 
 
 private:
+    ILOperation*            impl_;
+
     asio::ip::tcp::socket   socket_;
     asio::streambuf         buffer_;
 
     std::size_t             bytes_sent_;
     std::size_t             bytes_received_;
-
-    ILOperation*            impl_;
 };
 
 } // namespace il
