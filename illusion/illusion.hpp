@@ -14,10 +14,16 @@ public:
                             Illusion(QObject* parent = nullptr);
                             ~Illusion();
 
+    static Illusion*        instance();
+
     asio::io_service&       getService();
+    asio::ip::tcp::endpoint getEndpoint() const;
 
 private:
+    static Illusion*        instance_;
+
     asio::io_service        service_;
+    asio::ip::tcp::endpoint endpoint_;
 };
 
 } // namespace il
