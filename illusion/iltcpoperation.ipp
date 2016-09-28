@@ -37,7 +37,7 @@ inline void ILTcpOperation::onRead(const std::error_code& e, const std::size_t b
     if (!e) {
         write();
     } else {
-        // TODO: handle operation connect error
+        // TODO: handle operation read error
     }
 }
 
@@ -52,7 +52,7 @@ inline void ILTcpOperation::onWrite(const std::error_code& e, const std::size_t 
     if (!e) {
         read();
     } else {
-        // TODO: handle operation connect error
+        // TODO: handle operation write error
     }
 
     buffer_.consume(bytes);
