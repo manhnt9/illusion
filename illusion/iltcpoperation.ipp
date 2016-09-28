@@ -11,6 +11,7 @@ inline void ILTcpOperation::start() {
 
 inline void ILTcpOperation::finish() {
     impl_->finish();
+    emit finished(id());
 }
 
 inline void ILTcpOperation::connect(asio::ip::tcp::endpoint& endpoint) {
