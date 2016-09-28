@@ -3,6 +3,7 @@
 
 #include <asio.hpp>
 #include <QObject>
+#include "ilstate.h"
 
 namespace il {
 
@@ -27,6 +28,14 @@ public:
     void                    start();
     void                    finish();
 
+    quint32                 id() const;
+    State                   state() const;
+    quint64                 startTime() const;
+    quint64                 finishTime() const;
+
+    std::size_t             bytesSent() const;
+    std::size_t             bytesReceived() const;
+
 signals:
     void                    finished(quint32 id);
 
@@ -34,6 +43,9 @@ signals:
 private:
     asio::ip::tcp::socket   socket_;
     asio::streambuf         buffer_;
+
+    std::size_t             bytes_sent_;
+    std::size_t             bytes_received_;
 
     ILOperation*            impl_;
 };

@@ -14,7 +14,6 @@ inline void ILOperation::finish() {
     emit finished(id_);
 }
 
-
 inline quint32 ILOperation::id() const {
     return id_;
 }

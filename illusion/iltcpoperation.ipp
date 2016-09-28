@@ -32,6 +32,8 @@ inline void ILTcpOperation::read() {
 }
 
 inline void ILTcpOperation::onRead(const std::error_code& e, const std::size_t bytes) {
+    bytes_received_ += bytes;
+
     if (!e) {
         write();
     } else {
@@ -45,6 +47,8 @@ inline void ILTcpOperation::write() {
 }
 
 inline void ILTcpOperation::onWrite(const std::error_code& e, const std::size_t bytes) {
+    bytes_sent_ += bytes;
+
     if (!e) {
         read();
     } else {
@@ -52,6 +56,30 @@ inline void ILTcpOperation::onWrite(const std::error_code& e, const std::size_t 
     }
 
     buffer_.consume(bytes);
+}
+
+inline quint32 ILTcpOperation::id() const {
+    return impl_->id();
+}
+
+inline State ILTcpOperation::state() const {
+    return impl_->state();
+}
+
+inline quint64 ILTcpOperation::startTime() const {
+    return impl_->startTime();
+}
+
+inline quint64 ILTcpOperation::finishTime() const {
+    return impl_->finishTime();
+}
+
+inline std::size_t ILTcpOperation::bytesSent() const {
+    return bytes_sent_;
+}
+
+inline std::size_t ILTcpOperation::bytesReceived() const {
+    return bytes_received_;
 }
 
 } // namespace il
