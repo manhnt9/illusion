@@ -1,0 +1,57 @@
+#ifndef ILTCPOPERATION_IPP
+#define ILTCPOPERATION_IPP
+
+#include "iloperation.hpp"
+
+namespace il {
+
+inline void ILTcpOperation::start() {
+    impl_->start();
+}
+
+inline void ILTcpOperation::finish() {
+    impl_->finish();
+}
+
+inline void ILTcpOperation::connect(asio::ip::tcp::endpoint& endpoint) {
+    socket_.async_connect(endpoint, std::bind(&ILTcpOperation::onConnect,
+                                              this, std::placeholders::_1));
+}
+
+inline void ILTcpOperation::onConnect(const std::error_code& e) {
+    if (!e) {
+        read();
+    } else {
+        // TODO: handle operation connect error
+    }
+}
+
+inline void ILTcpOperation::read() {
+
+}
+
+inline void ILTcpOperation::onRead(const std::error_code& e, const std::size_t bytes) {
+    if (!e) {
+        write();
+    } else {
+        // TODO: handle operation connect error
+    }
+}
+
+inline void ILTcpOperation::write() {
+
+}
+
+inline void ILTcpOperation::onWrite(const std::error_code& e, const std::size_t bytes) {
+    if (!e) {
+        read();
+    } else {
+        // TODO: handle operation connect error
+    }
+
+    buffer_.consume(bytes);
+}
+
+} // namespace il
+
+#endif // ILTCPOPERATION_IPP
