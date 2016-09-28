@@ -11,11 +11,16 @@ class ILOperation : public QObject
     Q_OBJECT
 
 public:
-                            ILOperation(QObject* parent = nullptr);
+                            ILOperation(quint32 id, QObject* parent = nullptr);
                             ~ILOperation();
 
     void                    start();
     void                    finish();
+
+    quint32                 id() const;
+    State                   state() const;
+    quint64                 startTime() const;
+    quint64                 finishTime() const;
 
 signals:
     void                    finished(quint32 id);
@@ -28,5 +33,7 @@ protected:
 };
 
 } // namespace il
+
+#include "iloperation.ipp"
 
 #endif // ILOPERATION_H
