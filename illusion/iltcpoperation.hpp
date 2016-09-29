@@ -3,7 +3,7 @@
 
 #include <asio.hpp>
 #include <QObject>
-#include "ilstate.h"
+#include "ilstate.hpp"
 
 namespace il {
 
@@ -18,12 +18,6 @@ public:
                             ~ILTcpOperation();
 
     void                    connect(asio::ip::tcp::endpoint& endpoint);
-    void                    onConnect(const std::error_code& e);
-
-    void                    read();
-    void                    onRead(const std::error_code& e, const std::size_t bytes);
-    void                    write();
-    void                    onWrite(const std::error_code& e, const std::size_t bytes);
 
     void                    start();
     void                    finish();
@@ -36,9 +30,16 @@ public:
     std::size_t             bytesSent() const;
     std::size_t             bytesReceived() const;
 
+private:
+    void                    onConnect(const std::error_code& e);
+
+    void                    read();
+    void                    onRead(const std::error_code& e, const std::size_t bytes);
+    void                    write();
+    void                    onWrite(const std::error_code& e, const std::size_t bytes);
+
 signals:
     void                    finished(quint32 id);
-
 
 private:
     ILOperation*            impl_;
@@ -46,8 +47,8 @@ private:
     asio::ip::tcp::socket   socket_;
     asio::streambuf         buffer_;
 
-    std::size_t             bytes_sent_;
-    std::size_t             bytes_received_;
+    std::size_t             bytesSent_;
+    std::size_t             bytesReceived_;
 };
 
 } // namespace il

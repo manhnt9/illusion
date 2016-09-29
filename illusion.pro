@@ -26,4 +26,4 @@ HEADERS  += \
     illusion/iloperation.ipp \
     illusion/iltcpoperation.hpp \
     illusion/iltcpoperation.ipp \
-    illusion/ilstate.h
+    illusion/ilstate.hpp

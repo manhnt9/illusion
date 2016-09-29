@@ -33,7 +33,7 @@ inline void ILTcpOperation::read() {
 }
 
 inline void ILTcpOperation::onRead(const std::error_code& e, const std::size_t bytes) {
-    bytes_received_ += bytes;
+    bytesReceived_ += bytes;
 
     if (!e) {
         write();
@@ -48,7 +48,7 @@ inline void ILTcpOperation::write() {
 }
 
 inline void ILTcpOperation::onWrite(const std::error_code& e, const std::size_t bytes) {
-    bytes_sent_ += bytes;
+    bytesSent_ += bytes;
 
     if (!e) {
         read();
@@ -76,11 +76,11 @@ inline quint64 ILTcpOperation::finishTime() const {
 }
 
 inline std::size_t ILTcpOperation::bytesSent() const {
-    return bytes_sent_;
+    return bytesSent_;
 }
 
 inline std::size_t ILTcpOperation::bytesReceived() const {
-    return bytes_received_;
+    return bytesReceived_;
 }
 
 } // namespace il

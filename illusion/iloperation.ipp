@@ -6,11 +6,11 @@
 namespace il {
 
 inline void ILOperation::start() {
-    start_time_ = QDateTime::currentMSecsSinceEpoch();
+    startTime_ = QDateTime::currentMSecsSinceEpoch();
 }
 
 inline void ILOperation::finish() {
-    finish_time_ = QDateTime::currentMSecsSinceEpoch();
+    finishTime_ = QDateTime::currentMSecsSinceEpoch();
     emit finished(id_);
 }
 
@@ -23,11 +23,11 @@ inline State ILOperation::state() const {
 }
 
 inline quint64 ILOperation::startTime() const {
-    return start_time_;
+    return startTime_;
 }
 
 inline quint64 ILOperation::finishTime() const {
-    return finish_time_;
+    return finishTime_;
 }
 
 } // namespace il

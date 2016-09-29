@@ -1,7 +1,7 @@
 #ifndef ILOPERATION_H
 #define ILOPERATION_H
 
-#include "ilstate.h"
+#include "ilstate.hpp"
 #include <QObject>
 
 namespace il {
@@ -28,8 +28,8 @@ signals:
 protected:
     quint32                 id_;
     State                   state_;
-    quint64                 start_time_;
-    quint64                 finish_time_;
+    quint64                 startTime_;
+    quint64                 finishTime_;
 };
 
 } // namespace il
