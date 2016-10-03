@@ -3,6 +3,8 @@
 
 namespace il {
 
+Illusion* Illusion::instance_ = nullptr;
+
 inline Illusion* Illusion::instance() {
     if (!instance_)
         instance_ = new Illusion();
