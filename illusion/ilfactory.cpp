@@ -2,6 +2,8 @@
 
 namespace il {
 
+ILFactory* ILFactory::instance_ = nullptr;
+
 ILFactory::ILFactory() {
     init();
 }

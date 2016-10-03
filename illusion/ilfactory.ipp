@@ -3,8 +3,6 @@
 
 namespace il {
 
-ILFactory* ILFactory::instance_ = nullptr;
-
 inline ILFactory* ILFactory::instance() {
     if (!instance_)
         instance_ = new ILFactory();
