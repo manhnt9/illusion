@@ -12,6 +12,7 @@ TARGET   = illusion
 TEMPLATE = app
 CONFIG   += c++11
 
+LIBS += -lglog
 
 SOURCES  += \
     main.cpp \

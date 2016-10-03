@@ -18,6 +18,10 @@ inline asio::ip::tcp::endpoint Illusion::getEndpoint() const {
     return endpoint_;
 }
 
+inline void Illusion::run() {
+    service_.run();
+}
+
 } // namespace il
 
 #endif // ILLUSION_IPP

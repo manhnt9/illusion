@@ -2,6 +2,7 @@
 #define ILTCPOPERATION_IPP
 
 #include "iloperation.hpp"
+#include <glog/logging.h>
 
 namespace il {
 
@@ -23,7 +24,7 @@ inline void ILTcpOperation::onConnect(const std::error_code& e) {
     if (!e) {
         read();
     } else {
-        // TODO: handle operation connect error
+        LOG(ERROR) << "Connection error: " << e.message();
     }
 }
 
@@ -38,7 +39,7 @@ inline void ILTcpOperation::onRead(const std::error_code& e, const std::size_t b
     if (!e) {
         write();
     } else {
-        // TODO: handle operation read error
+        LOG(ERROR) << "Read error: " << e.message();
     }
 }
 
@@ -53,7 +54,7 @@ inline void ILTcpOperation::onWrite(const std::error_code& e, const std::size_t 
     if (!e) {
         read();
     } else {
-        // TODO: handle operation write error
+        LOG(ERROR) << "Write error: " << e.message();
     }
 
     buffer_.consume(bytes);

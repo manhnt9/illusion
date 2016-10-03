@@ -19,6 +19,8 @@ public:
     asio::io_service&       getService();
     asio::ip::tcp::endpoint getEndpoint() const;
 
+    void                    run();
+
 private:
     static Illusion*        instance_;
 
