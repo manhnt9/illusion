@@ -20,11 +20,13 @@ public:
     asio::ip::tcp::endpoint getEndpoint() const;
 
     void                    run();
+    void                    stop();
 
 private:
     static Illusion*        instance_;
 
     asio::io_service        service_;
+    asio::io_service::work* work_;
     asio::ip::tcp::endpoint endpoint_;
 };
 

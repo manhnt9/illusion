@@ -18,7 +18,13 @@ inline asio::ip::tcp::endpoint Illusion::getEndpoint() const {
     return endpoint_;
 }
 
+inline void Illusion::stop() {
+    delete work_;
+    service_.stop();
+}
+
 inline void Illusion::run() {
+    work_ = new asio::io_service::work(service_);
     service_.run();
 }
 
