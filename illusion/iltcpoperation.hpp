@@ -31,12 +31,12 @@ public:
     std::size_t             bytesReceived() const;
 
 private:
-    void                    onConnect(const std::error_code& e);
+    virtual void            onConnect(const std::error_code& e);
 
     void                    read();
-    void                    onRead(const std::error_code& e, const std::size_t bytes);
+    virtual void            onRead(const std::error_code& e, const std::size_t bytes);
     void                    write();
-    void                    onWrite(const std::error_code& e, const std::size_t bytes);
+    virtual void            onWrite(const std::error_code& e, const std::size_t bytes);
 
 signals:
     void                    finished(quint32 id);
