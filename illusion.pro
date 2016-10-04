@@ -13,10 +13,9 @@ TEMPLATE = app
 CONFIG   += c++11
 
 INCLUDEPATH += proto3/include
-LIBS += -L$$PWD/proto3/lib
-LIBS += -lglog -lprotobuf
+LIBS += -lglog $$PWD/proto3/lib/libprotobuf-lite.a
 
-#PROTOS = ./proto/test.proto
+PROTOS = ./proto/test.proto
 include(protobuf.pri)
 
 SOURCES  += \
