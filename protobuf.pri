@@ -17,7 +17,7 @@
 
 message("Generating protocol buffer classes from .proto files")
 
-PROTOPATH += ./proto
+PROTOPATH += ./operations
 PROTOPATHS =
 for(p, PROTOPATH):PROTOPATHS += --proto_path=$${p}
 
