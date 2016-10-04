@@ -15,7 +15,7 @@ CONFIG   += c++11
 INCLUDEPATH += proto3/include
 LIBS += -lglog $$PWD/proto3/lib/libprotobuf-lite.a
 
-INCLUDEPATH += ./operations/generated/
+INCLUDEPATH += ./operations/
 
 PROTOS = ./operations/checkaccount.proto
 
