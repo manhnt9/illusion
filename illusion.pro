@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -13,8 +13,11 @@ TEMPLATE = app
 CONFIG   += c++11
 
 INCLUDEPATH += proto3/include
-LIBS += -L/home/manh/illusion/proto3/lib
-LIBS += -lglog -lprotobuf-lite
+LIBS += -L$$PWD/proto3/lib
+LIBS += -lglog -lprotobuf
+
+#PROTOS = ./proto/test.proto
+include(protobuf.pri)
 
 SOURCES  += \
     main.cpp \
@@ -23,6 +26,7 @@ SOURCES  += \
     illusion/illusion.cpp \
     illusion/ilfactory.cpp \
     illusion/ilmanager.cpp \
+    vt/vthttpoperation.cpp
 
 HEADERS  += \
     illusion/illusion.hpp \
@@ -36,5 +40,10 @@ HEADERS  += \
     illusion/ilfactory.ipp \
     illusion/ilfactory.hpp \
     illusion/ilmanager.hpp \
-    illusion/ilmanager.ipp
+    illusion/ilmanager.ipp \
+    vt/vthttpoperation.hpp \
+    vt/vthttpoperation.ipp
+
+DISTFILES += \
+    protobuf.pri
 

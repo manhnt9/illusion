@@ -2,8 +2,12 @@
 #define ILMANAGER_H
 
 #include <QObject>
+#include <QHash>
 
 namespace il {
+
+class ILOperation;
+typedef QHash<quint64, ILOperation*> OpList;
 
 class ILManager : public QObject
 {
@@ -14,10 +18,11 @@ public:
 
     static ILManager*       instance();
 
-    quint64                 opId();
+    quint64                 opId(ILOperation* op);
 
 private:
     static ILManager*       instance_;
+    OpList                  opList_;
     quint64                 opId_;
 };
 
