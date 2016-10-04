@@ -1,7 +1,0 @@
-syntax = "proto3";
-
-message Test {
-  int32 num = 1;
-}
-
-option optimize_for = LITE_RUNTIME;

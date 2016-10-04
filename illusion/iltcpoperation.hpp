@@ -5,7 +5,15 @@
 #include <QObject>
 #include "ilstate.hpp"
 
+namespace google {
+namespace protobuf {
+    class MessageLite;
+}
+}
+
 namespace il {
+
+typedef google::protobuf::MessageLite ILMessage;
 
 class ILOperation;
 
@@ -26,6 +34,7 @@ public:
     State                   state() const;
     quint64                 startTime() const;
     quint64                 finishTime() const;
+    ILMessage*              message() const;
 
     std::size_t             bytesSent() const;
     std::size_t             bytesReceived() const;

@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package operations;
+
+message CheckAccount {
+    message Request {
+        string username = 1;
+    }
+
+    message Reply {
+        bool exist = 1;
+    }
+}
+
+option optimize_for = LITE_RUNTIME;

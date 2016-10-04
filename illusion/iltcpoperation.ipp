@@ -76,6 +76,10 @@ inline quint64 ILTcpOperation::finishTime() const {
     return impl_->finishTime();
 }
 
+inline ILMessage* ILTcpOperation::message() const {
+    return impl_->message();
+}
+
 inline std::size_t ILTcpOperation::bytesSent() const {
     return bytesSent_;
 }

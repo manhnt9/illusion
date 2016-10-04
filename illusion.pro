@@ -15,7 +15,10 @@ CONFIG   += c++11
 INCLUDEPATH += proto3/include
 LIBS += -lglog $$PWD/proto3/lib/libprotobuf-lite.a
 
-PROTOS = ./operations/test.proto
+INCLUDEPATH += ./operations/generated/
+
+PROTOS = ./operations/checkaccount.proto
+
 include(protobuf.pri)
 
 SOURCES  += \
@@ -44,4 +47,4 @@ HEADERS  += \
     vt/vthttpoperation.ipp
 
 DISTFILES += \
-    operations/test.proto
+    operations/checkaccount.proto

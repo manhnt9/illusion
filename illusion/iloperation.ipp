@@ -31,6 +31,10 @@ inline quint64 ILOperation::finishTime() const {
     return finishTime_;
 }
 
+inline ILMessage* ILOperation::message() const {
+    return message_;
+}
+
 } // namespace il
 
 #endif // ILOPERATION_IPP
