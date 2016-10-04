@@ -12,7 +12,9 @@ TARGET   = illusion
 TEMPLATE = app
 CONFIG   += c++11
 
-LIBS += -lglog
+INCLUDEPATH += proto3/include
+LIBS += -L/home/manh/illusion/proto3/lib
+LIBS += -lglog -lprotobuf-lite
 
 SOURCES  += \
     main.cpp \
