@@ -2,6 +2,7 @@
 #define ILOPERATION_IPP
 
 #include <QDateTime>
+#include "illusion.hpp"
 
 namespace il {
 

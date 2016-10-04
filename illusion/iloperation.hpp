@@ -11,7 +11,7 @@ class ILOperation : public QObject
     Q_OBJECT
 
 public:
-                            ILOperation(quint32 id, QObject* parent = nullptr);
+    explicit                ILOperation(QObject* parent = nullptr);
                             ~ILOperation();
 
     void                    start();

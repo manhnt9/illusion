@@ -22,7 +22,7 @@ SOURCES  += \
     illusion/iltcpoperation.cpp \
     illusion/illusion.cpp \
     illusion/ilfactory.cpp \
-    illusion/ilsuite.cpp
+    illusion/ilmanager.cpp \
 
 HEADERS  += \
     illusion/illusion.hpp \
@@ -32,8 +32,9 @@ HEADERS  += \
     illusion/iltcpoperation.hpp \
     illusion/iltcpoperation.ipp \
     illusion/ilstate.hpp \
-    illusion/ilsuite.hpp \
-    illusion/ilsuite.ipp \
     illusion/iltype.hpp \
     illusion/ilfactory.ipp \
-    illusion/ilfactory.hpp
+    illusion/ilfactory.hpp \
+    illusion/ilmanager.hpp \
+    illusion/ilmanager.ipp
+

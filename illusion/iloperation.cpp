@@ -1,10 +1,11 @@
 #include "iloperation.hpp"
+#include "ilmanager.hpp"
 
 namespace il {
 
-ILOperation::ILOperation(quint32 id, QObject *parent)
+ILOperation::ILOperation(QObject *parent)
     :   QObject(parent),
-        id_(id),
+        id_(ILManager::instance()->opId()),
         state_(State::CREATED),
         startTime_(0),
         finishTime_(0)

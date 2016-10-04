@@ -14,7 +14,7 @@ class ILTcpOperation : public QObject
     Q_OBJECT
 
 public:
-                            ILTcpOperation(QObject* parent = nullptr);
+    explicit                ILTcpOperation(QObject* parent = nullptr);
                             ~ILTcpOperation();
 
     void                    connect(asio::ip::tcp::endpoint& endpoint);
@@ -30,7 +30,7 @@ public:
     std::size_t             bytesSent() const;
     std::size_t             bytesReceived() const;
 
-private:
+protected:
     virtual void            onConnect(const std::error_code& e);
 
     void                    read();
@@ -41,7 +41,7 @@ private:
 signals:
     void                    finished(quint32 id);
 
-private:
+protected:
     ILOperation*            impl_;
 
     asio::ip::tcp::socket   socket_;
