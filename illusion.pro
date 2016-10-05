@@ -12,12 +12,11 @@ TARGET              = illusion
 TEMPLATE            = app
 CONFIG              += c++11
 
-INCLUDEPATH         += proto3/include
-LIBS                += -lglog $$PWD/proto3/lib/libprotobuf-lite.a
+LIBS                += -lglog -lprotobuf-lite
 
-INCLUDEPATH         += ./message/
+INCLUDEPATH         += message
 
-PROTOS              = ./message/checkaccount.proto
+PROTOS              =  message/checkaccount.proto
 
 include(protobuf.pri)
 
@@ -26,7 +25,14 @@ CONFIG(private) {
     HEADERS         += vt/vthttpoperation.hpp \
                         vt/vthttpoperation.ipp
 
-    PROTOS          +=
+    PROTOS          += vt/proto/comm.account.proto \
+                        vt/proto/comm.chat.proto \
+                        vt/proto/comm.message.proto \
+                        vt/proto/comm.profile.proto \
+                        vt/proto/comm.call.proto \
+                        vt/proto/comm.contact.proto \
+                        vt/proto/comm.model.proto \
+                        vt/proto/store.proto
 }
 
 SOURCES             += main.cpp \
