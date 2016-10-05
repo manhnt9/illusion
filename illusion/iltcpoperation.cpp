@@ -13,7 +13,7 @@ ILTcpOperation::ILTcpOperation(ILMessage *m, QObject *parent)
         bytesReceived_(0)
 {
     assert(m);
-    impl_->message() = m;
+    impl_->request() = m;
 }
 
 ILTcpOperation::~ILTcpOperation()

@@ -34,7 +34,9 @@ public:
     State                   state() const;
     quint64                 startTime() const;
     quint64                 finishTime() const;
-    ILMessage*              message() const;
+
+    ILMessage*&             request();
+    ILMessage*              reply() const;
 
     std::size_t             bytesSent() const;
     std::size_t             bytesReceived() const;

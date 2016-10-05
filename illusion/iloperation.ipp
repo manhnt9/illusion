@@ -31,8 +31,12 @@ inline quint64 ILOperation::finishTime() const {
     return finishTime_;
 }
 
-inline ILMessage*& ILOperation::message() {
-    return message_;
+inline ILMessage*& ILOperation::request() {
+    return request_;
+}
+
+inline ILMessage* ILOperation::reply() const {
+    return reply_;
 }
 
 } // namespace il

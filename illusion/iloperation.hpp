@@ -29,7 +29,8 @@ public:
     State                   state() const;
     quint64                 startTime() const;
     quint64                 finishTime() const;
-    ILMessage*&             message();
+    ILMessage*&             request();
+    ILMessage*              reply() const;
 
 signals:
     void                    finished(quint32 id);
@@ -40,7 +41,8 @@ protected:
     quint64                 startTime_;
     quint64                 finishTime_;
 
-    ILMessage*              message_;
+    ILMessage*              request_;
+    ILMessage*              reply_;
 };
 
 } // namespace il
