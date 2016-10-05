@@ -15,7 +15,7 @@ ILOperation::ILOperation(QObject *parent)
 
 ILOperation::~ILOperation()
 {
-
+    ILManager::instance()->removeOperation(this->id());
 }
 
 } // namespace il

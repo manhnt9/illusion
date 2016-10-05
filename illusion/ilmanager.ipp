@@ -15,6 +15,10 @@ inline quint64 ILManager::opId(ILOperation* op) {
     return opId_++;
 }
 
+inline void ILManager::removeOperation(quint64 id) {
+    opList_.remove(id);
+}
+
 } // namespace il
 
 #endif // ILMANAGER_IPP

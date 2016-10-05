@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package operations;
+package ilmessage;
 
 message CheckAccount {
     message Request {
