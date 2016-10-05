@@ -21,14 +21,19 @@ PROTOS = ./message/checkaccount.proto
 
 include(protobuf.pri)
 
+CONFIG(private) {
+    SOURCES += vt/vthttpoperation.cpp
+    HEADERS += vt/vthttpoperation.hpp \
+               vt/vthttpoperation.ipp
+}
+
 SOURCES  += \
     main.cpp \
     illusion/iloperation.cpp \
     illusion/iltcpoperation.cpp \
     illusion/illusion.cpp \
     illusion/ilfactory.cpp \
-    illusion/ilmanager.cpp \
-    vt/vthttpoperation.cpp
+    illusion/ilmanager.cpp
 
 HEADERS  += \
     illusion/illusion.hpp \
@@ -42,9 +47,8 @@ HEADERS  += \
     illusion/ilfactory.ipp \
     illusion/ilfactory.hpp \
     illusion/ilmanager.hpp \
-    illusion/ilmanager.ipp \
-    vt/vthttpoperation.hpp \
-    vt/vthttpoperation.ipp
+    illusion/ilmanager.ipp
+
 
 DISTFILES += \
     message/checkaccount.proto
