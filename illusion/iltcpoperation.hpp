@@ -22,7 +22,7 @@ class ILTcpOperation : public QObject
     Q_OBJECT
 
 public:
-    explicit                ILTcpOperation(QObject* parent = nullptr);
+    explicit                ILTcpOperation(ILMessage* m, QObject* parent = nullptr);
                             ~ILTcpOperation();
 
     void                    connect(asio::ip::tcp::endpoint& endpoint);
