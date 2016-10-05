@@ -4,51 +4,49 @@
 #
 #-------------------------------------------------
 
-QT       += core gui network
+QT                  += core gui network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET   = illusion
-TEMPLATE = app
-CONFIG   += c++11
+TARGET              = illusion
+TEMPLATE            = app
+CONFIG              += c++11
 
-INCLUDEPATH += proto3/include
-LIBS += -lglog $$PWD/proto3/lib/libprotobuf-lite.a
+INCLUDEPATH         += proto3/include
+LIBS                += -lglog $$PWD/proto3/lib/libprotobuf-lite.a
 
-INCLUDEPATH += ./message/
+INCLUDEPATH         += ./message/
 
-PROTOS = ./message/checkaccount.proto
+PROTOS              = ./message/checkaccount.proto
 
 include(protobuf.pri)
 
 CONFIG(private) {
-    SOURCES += vt/vthttpoperation.cpp
-    HEADERS += vt/vthttpoperation.hpp \
-               vt/vthttpoperation.ipp
+    SOURCES         += vt/vthttpoperation.cpp
+    HEADERS         += vt/vthttpoperation.hpp \
+                        vt/vthttpoperation.ipp
+
+    PROTOS          +=
 }
 
-SOURCES  += \
-    main.cpp \
-    illusion/iloperation.cpp \
-    illusion/iltcpoperation.cpp \
-    illusion/illusion.cpp \
-    illusion/ilfactory.cpp \
-    illusion/ilmanager.cpp
+SOURCES             += main.cpp \
+                        illusion/iloperation.cpp \
+                        illusion/iltcpoperation.cpp \
+                        illusion/illusion.cpp \
+                        illusion/ilfactory.cpp \
+                        illusion/ilmanager.cpp
 
-HEADERS  += \
-    illusion/illusion.hpp \
-    illusion/illusion.ipp \
-    illusion/iloperation.hpp \
-    illusion/iloperation.ipp \
-    illusion/iltcpoperation.hpp \
-    illusion/iltcpoperation.ipp \
-    illusion/ilstate.hpp \
-    illusion/iltype.hpp \
-    illusion/ilfactory.ipp \
-    illusion/ilfactory.hpp \
-    illusion/ilmanager.hpp \
-    illusion/ilmanager.ipp
+HEADERS             += illusion/illusion.hpp \
+                        illusion/illusion.ipp \
+                        illusion/iloperation.hpp \
+                        illusion/iloperation.ipp \
+                        illusion/iltcpoperation.hpp \
+                        illusion/iltcpoperation.ipp \
+                        illusion/ilstate.hpp \
+                        illusion/iltype.hpp \
+                        illusion/ilfactory.ipp \
+                        illusion/ilfactory.hpp \
+                        illusion/ilmanager.hpp \
+                        illusion/ilmanager.ipp
 
-
-DISTFILES += \
-    message/checkaccount.proto
+DISTFILES           += message/checkaccount.proto

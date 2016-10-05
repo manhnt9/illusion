@@ -15,7 +15,7 @@
 #
 # Source: http://www.kieltech.de/uweswiki/Google%20Protocol%20Buffers
 
-PROTOPATH += ./message
+PROTOPATH +=
 PROTOPATHS =
 for(p, PROTOPATH):PROTOPATHS += --proto_path=$${p}
 
