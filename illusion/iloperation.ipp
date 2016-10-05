@@ -31,7 +31,7 @@ inline quint64 ILOperation::finishTime() const {
     return finishTime_;
 }
 
-inline ILMessage* ILOperation::message() const {
+inline ILMessage*& ILOperation::message() {
     return message_;
 }
 

@@ -29,7 +29,7 @@ public:
     State                   state() const;
     quint64                 startTime() const;
     quint64                 finishTime() const;
-    ILMessage*              message() const;
+    ILMessage*&             message();
 
 signals:
     void                    finished(quint32 id);
