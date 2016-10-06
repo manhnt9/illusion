@@ -18,6 +18,8 @@ ILOperation::ILOperation(QObject *parent)
 ILOperation::~ILOperation()
 {
     ILManager::instance()->removeOperation(this->id());
+    delete request_;
+    if (reply_) delete reply_;
 }
 
 } // namespace il
