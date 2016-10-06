@@ -2,17 +2,10 @@
 #define ILOPERATION_H
 
 #include "ilstate.hpp"
+#include "ilmessage.hpp"
 #include <QObject>
 
-namespace google {
-namespace protobuf {
-    class MessageLite;
-}
-}
-
 namespace il {
-
-typedef google::protobuf::MessageLite ILMessage;
 
 class ILOperation : public QObject
 {

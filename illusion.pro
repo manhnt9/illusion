@@ -50,6 +50,7 @@ HEADERS             += illusion/illusion.hpp \
                         illusion/ilstate.hpp \
                         illusion/iltype.hpp \
                         illusion/ilmanager.hpp \
-                        illusion/ilmanager.ipp
+                        illusion/ilmanager.ipp \
+                        message/ilmessage.hpp
 
 DISTFILES           += message/checkaccount.proto

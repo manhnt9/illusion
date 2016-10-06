@@ -1,19 +1,12 @@
 #ifndef ILTCPOPERATION_H
 #define ILTCPOPERATION_H
 
+#include "ilstate.hpp"
+#include "ilmessage.hpp"
 #include <asio.hpp>
 #include <QObject>
-#include "ilstate.hpp"
-
-namespace google {
-namespace protobuf {
-    class MessageLite;
-}
-}
 
 namespace il {
-
-typedef google::protobuf::MessageLite ILMessage;
 
 class ILOperation;
 
