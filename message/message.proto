@@ -1,15 +1,13 @@
 syntax = "proto3";
 option optimize_for = LITE_RUNTIME;
 
-package message;
-
-message CheckAccount {
+message SampleRequest {
     message Request {
-        string username = 1;
+        uint32 num = 1;
     }
 
     message Reply {
-        bool exist = 1;
+        uint32 num = 1;
     }
 }
 

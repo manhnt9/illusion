@@ -1,7 +1,6 @@
 #include "iltcpoperation.hpp"
 #include "iloperation.hpp"
 #include "illusion.hpp"
-#include <cassert>
 
 namespace il {
 
@@ -12,7 +11,7 @@ ILTcpOperation::ILTcpOperation(ILMessage *m, QObject *parent)
         bytesSent_(0),
         bytesReceived_(0)
 {
-    assert(m);
+    Q_ASSERT(m);
     impl_->request() = m;
 }
 

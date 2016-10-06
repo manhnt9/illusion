@@ -16,12 +16,14 @@ LIBS                += -lglog -lprotobuf-lite
 
 INCLUDEPATH         += message
 
-PROTOS              =  message/checkaccount.proto
+PROTOS              =  message/message.proto
 
 include(protobuf.pri)
 
 CONFIG(private) {
-    SOURCES         += vt/vthttpoperation.cpp
+    SOURCES         += vt/vthttpoperation.cpp \
+                        vt/vtmessage.cpp
+
     HEADERS         += vt/vthttpoperation.hpp \
                         vt/vthttpoperation.ipp
 
@@ -53,4 +55,4 @@ HEADERS             += illusion/illusion.hpp \
                         illusion/ilmanager.ipp \
                         message/ilmessage.hpp
 
-DISTFILES           += message/checkaccount.proto
+DISTFILES           += message/message.proto
