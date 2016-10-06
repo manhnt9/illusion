@@ -1,5 +1,4 @@
 syntax = "proto3";
-option optimize_for = LITE_RUNTIME;
 
 message SampleRequest {
     message Request {

@@ -12,7 +12,7 @@ TARGET              = illusion
 TEMPLATE            = app
 CONFIG              += c++11
 
-LIBS                += -lglog -lprotobuf-lite
+LIBS                += -lglog -lprotobuf
 
 INCLUDEPATH         += message
 
@@ -21,11 +21,13 @@ PROTOS              =  message/message.proto
 include(protobuf.pri)
 
 CONFIG(private) {
-    SOURCES         += vt/vthttpoperation.cpp \
-                        vt/vtmessage.cpp
+    SOURCES         += vt/vtmessage.cpp \
+                        vt/vthttpoperation.cpp \
+                        vt/vtpostoperation.cpp
 
     HEADERS         += vt/vthttpoperation.hpp \
-                        vt/vthttpoperation.ipp
+                        vt/vthttpoperation.ipp \
+                        vt/vtpostoperation.hpp
 
     PROTOS          += vt/proto/comm.account.proto \
                         vt/proto/comm.chat.proto \

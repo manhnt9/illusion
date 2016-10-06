@@ -6,13 +6,13 @@ class QStringList;
 
 namespace google {
 namespace protobuf {
-    class MessageLite;
+    class Message;
 }
 }
 
 namespace il {
 
-typedef google::protobuf::MessageLite ILMessage;
+typedef google::protobuf::Message ILMessage;
 
 namespace message {
 
