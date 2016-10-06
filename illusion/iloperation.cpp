@@ -1,5 +1,6 @@
 #include "iloperation.hpp"
 #include "ilmanager.hpp"
+#include <google/protobuf/message_lite.h>
 
 namespace il {
 
