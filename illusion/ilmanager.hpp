@@ -18,7 +18,8 @@ public:
 
     static ILManager*       instance();
 
-    quint64                 opId(ILOperation* op);
+    quint64                 addOperation(ILOperation* op);
+    ILOperation*            getOperation(quint64 id);
     void                    removeOperation(quint64 id);
 
 private:

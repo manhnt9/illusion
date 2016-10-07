@@ -10,9 +10,13 @@ inline ILManager* ILManager::instance() {
     return instance_;
 }
 
-inline quint64 ILManager::opId(ILOperation* op) {
+inline quint64 ILManager::addOperation(ILOperation* op) {
     opList_.insert(opId_, op);
     return opId_++;
+}
+
+inline ILOperation* ILManager::getOperation(quint64 id) {
+    return opList_[id];
 }
 
 inline void ILManager::removeOperation(quint64 id) {
