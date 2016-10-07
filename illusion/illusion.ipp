@@ -2,6 +2,7 @@
 #define ILLUSION_IPP
 
 #include <glog/logging.h>
+#include <thread>
 
 namespace il {
 
@@ -31,7 +32,12 @@ inline void Illusion::run() {
     LOG(INFO) << "Benchmark has started";
 
     work_ = new asio::io_service::work(service_);
-    service_.run();
+
+    std::thread t([&] () {
+        this->service_.run();
+    });
+
+    t.detach();
 }
 
 } // namespace il

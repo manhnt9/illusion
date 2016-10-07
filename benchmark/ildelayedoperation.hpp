@@ -7,10 +7,12 @@ namespace il {
 
 class ILOperation;
 
-class ILDelayedOperation : std::enable_shared_from_this<ILDelayedOperation>
+class ILDelayedOperation : public std::enable_shared_from_this<ILDelayedOperation>
 {    
 public:                                
-    explicit                    ILDelayedOperation(ILOperation* op, std::uint64_t delay);
+    explicit                    ILDelayedOperation(ILOperation* op);
+
+    void                        run(std::uint64_t delay);
 
 private:
     ILOperation*                op_;

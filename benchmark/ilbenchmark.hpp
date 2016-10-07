@@ -13,17 +13,19 @@ class ILBenchmark : public QObject
     Q_OBJECT
 
 public:
-    explicit                ILBenchmark(const QString& messName, quint64 duration, quint32 numOps, quint16 delay);
+    explicit                ILBenchmark(const QString& messName, quint64 duration, quint64 delay);
 
     void                    run();
 
+    void                    addOperation(ILOperation* op);
+
 private slots:
+    void                    runNext(quint64 id);
 
 private:
     QString                 messageName_;
     quint64                 duration_;
-    quint32                 numOps_;
-    quint16                 delay_;
+    quint64                 delay_;
 
     QVector<ILOperation*>   opList_;
 };

@@ -15,8 +15,8 @@ inline quint64 ILManager::addOperation(ILOperation* op) {
     return opId_++;
 }
 
-inline ILOperation* ILManager::getOperation(quint64 id) {
-    return opList_[id];
+inline ILOperation* ILManager::getOperation(quint64 id) const {
+    return opList_.value(id);
 }
 
 inline void ILManager::removeOperation(quint64 id) {
