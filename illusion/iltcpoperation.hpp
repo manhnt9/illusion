@@ -17,6 +17,8 @@ class ILTcpOperation : public QObject
 
 public:
     explicit                ILTcpOperation(ILMessage* m, QObject* parent = nullptr);
+                            ILTcpOperation(const ILTcpOperation&) = delete;
+    ILTcpOperation&         operator=(const ILTcpOperation&) = delete;
                             ~ILTcpOperation();
 
     void                    connect(asio::ip::tcp::endpoint& endpoint);

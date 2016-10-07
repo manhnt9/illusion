@@ -13,6 +13,8 @@ class ILOperation : public QObject
 
 public:
     explicit                ILOperation(QObject* parent = nullptr);
+                            ILOperation(const ILOperation&) = delete;
+    ILOperation&            operator=(const ILOperation&) = delete;
                             ~ILOperation();
 
     void                    start();
