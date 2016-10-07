@@ -14,3 +14,4 @@ Illusion is a framework for creating, running, examine server benchmarks
 - ILHttpOperation: In-progress
 - Use protobuf3 to define custom operation message: In-progress
 - ILBenchmark for running benchmarks: In-progress
+- Usage documentation
