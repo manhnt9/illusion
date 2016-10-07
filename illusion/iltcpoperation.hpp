@@ -19,7 +19,7 @@ public:
     ILTcpOperation&         operator=(const ILTcpOperation&) = delete;
                             ~ILTcpOperation();
 
-    void                    connect(asio::ip::tcp::endpoint& endpoint);
+    void                    connect(const asio::ip::tcp::endpoint& endpoint);
 
     virtual void            run();
 

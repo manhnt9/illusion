@@ -6,8 +6,8 @@
 
 namespace il {
 
-inline void ILTcpOperation::connect(asio::ip::tcp::endpoint& endpoint) {
-    if (!socket)
+inline void ILTcpOperation::connect(const asio::ip::tcp::endpoint& endpoint) {
+    if (!socket_)
         socket_ = new TcpSocket(Illusion::instance()->getService());
 
     socket_->async_connect(endpoint, std::bind(&ILTcpOperation::onConnect,
