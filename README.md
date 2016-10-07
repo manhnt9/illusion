@@ -8,9 +8,6 @@ Illusion is a framework for creating, running, examine server benchmarks
 - Qt5 and Qt Creator IDE
 
 ## Roadmap
-- ~~Write basic benchmark operations: ILOperation, ILTcpOperation~~ Done
+- ~~Write basic operations: ILOperation, ILTcpOperation~~ Done
 - ILHttpOperation: In-progress
-- ILFactory for creating operations
-- Use protobuf3 to define custom operation message
-- Operation management system for executing and tracing operation
-- Write ILGroup for grouping operations
+- Use protobuf3 to define custom operation message: In-progress
