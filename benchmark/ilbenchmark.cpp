@@ -2,8 +2,12 @@
 
 namespace il {
 
-ILBenchmark::ILBenchmark(QObject *parent)
-    :   QObject(parent)
+ILBenchmark::ILBenchmark(const QString& opName, quint64 duration, quint32 numOps, quint16 delay)
+    :   QObject(nullptr),
+        opName_(opName),
+        duration_(duration),
+        numOps_(numOps),
+        delay_(delay)
 {
 
 }
