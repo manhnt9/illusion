@@ -18,6 +18,7 @@ namespace message {
 
 void                        init();
 ILMessage*                  create(const QString& name);
+bool                        exists(const QString& name);
 extern QStringList          list;
 
 } // namespace message

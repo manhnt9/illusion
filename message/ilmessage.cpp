@@ -11,6 +11,15 @@ void init() {
     list.push_back("SampleRequest");
 }
 
+bool exists(const QString& name) {
+    for(const auto& m : list) {
+        if (m == name)
+            return true;
+    }
+
+    return false;
+}
+
 ILMessage* create(const QString& name) {
     Q_ASSERT(name.length());
 
