@@ -16,9 +16,6 @@ public:
 
     virtual void            run() = 0;
 
-    void                    start();
-    void                    finish();
-
     quint32                 id() const;
     State                   state() const;
     quint64                 startTime() const;
@@ -28,6 +25,9 @@ signals:
     void                    finished(quint32 id);
 
 protected:
+    void                    start();
+    void                    finish();
+
     quint32                 id_;
     State                   state_;
     quint64                 startTime_;

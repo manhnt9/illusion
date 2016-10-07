@@ -2,6 +2,7 @@
 #define ILBENCHMARK_H
 
 #include <QObject>
+#include <QVector>
 
 namespace il {
 
@@ -16,11 +17,15 @@ public:
 
     void                    run();
 
+private slots:
+
 private:
     QString                 messageName_;
     quint64                 duration_;
     quint32                 numOps_;
     quint16                 delay_;
+
+    QVector<ILOperation*>   opList_;
 };
 
 } // namespace il
