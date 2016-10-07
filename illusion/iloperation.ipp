@@ -35,7 +35,7 @@ inline ILMessage*& ILOperation::request() {
     return request_;
 }
 
-inline ILMessage* ILOperation::reply() const {
+inline ILMessage*& ILOperation::reply() {
     return reply_;
 }
 

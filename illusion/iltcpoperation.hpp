@@ -30,7 +30,7 @@ public:
     quint64                 finishTime() const;
 
     ILMessage*&             request();
-    ILMessage*              reply() const;
+    ILMessage*&             reply();
 
     std::size_t             bytesSent() const;
     std::size_t             bytesReceived() const;

@@ -23,7 +23,7 @@ public:
     quint64                 startTime() const;
     quint64                 finishTime() const;
     ILMessage*&             request();
-    ILMessage*              reply() const;
+    ILMessage*&             reply();
 
 signals:
     void                    finished(quint32 id);

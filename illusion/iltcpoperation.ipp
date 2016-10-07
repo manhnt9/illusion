@@ -80,7 +80,7 @@ inline ILMessage*& ILTcpOperation::request() {
     return impl_->request();
 }
 
-inline ILMessage* ILTcpOperation::reply() const {
+inline ILMessage*& ILTcpOperation::reply() {
     return impl_->reply();
 }
 
