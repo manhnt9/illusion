@@ -9,6 +9,7 @@
 namespace il {
 
 class ILOperation;
+typedef asio::ip::tcp::socket TcpSocket;
 
 class ILTcpOperation : public QObject
 {
@@ -48,7 +49,7 @@ signals:
 protected:
     ILOperation*            impl_;
 
-    asio::ip::tcp::socket   socket_;
+    TcpSocket*              socket_;
     asio::streambuf         buffer_;
 
     std::size_t             bytesSent_;

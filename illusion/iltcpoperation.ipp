@@ -16,8 +16,8 @@ inline void ILTcpOperation::finish() {
 }
 
 inline void ILTcpOperation::connect(asio::ip::tcp::endpoint& endpoint) {
-    socket_.async_connect(endpoint, std::bind(&ILTcpOperation::onConnect,
-                                              this, std::placeholders::_1));
+    socket_->async_connect(endpoint, std::bind(&ILTcpOperation::onConnect,
+                                               this, std::placeholders::_1));
 }
 
 inline void ILTcpOperation::onConnect(const std::error_code& e) {
@@ -29,8 +29,8 @@ inline void ILTcpOperation::onConnect(const std::error_code& e) {
 }
 
 inline void ILTcpOperation::read() {
-    asio::async_read(socket_, buffer_, std::bind(&ILTcpOperation::onRead, this,
-                                                 std::placeholders::_1, std::placeholders::_2));
+    asio::async_read(*socket_, buffer_, std::bind(&ILTcpOperation::onRead, this,
+                                                  std::placeholders::_1, std::placeholders::_2));
 }
 
 inline void ILTcpOperation::onRead(const std::error_code& e, const std::size_t bytes) {
@@ -44,8 +44,8 @@ inline void ILTcpOperation::onRead(const std::error_code& e, const std::size_t b
 }
 
 inline void ILTcpOperation::write() {
-    asio::async_write(socket_, buffer_, std::bind(&ILTcpOperation::onWrite, this,
-                                                  std::placeholders::_1, std::placeholders::_2));
+    asio::async_write(*socket_, buffer_, std::bind(&ILTcpOperation::onWrite, this,
+                                                   std::placeholders::_1, std::placeholders::_2));
 }
 
 inline void ILTcpOperation::onWrite(const std::error_code& e, const std::size_t bytes) {
