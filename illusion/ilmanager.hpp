@@ -14,7 +14,7 @@ class ILManager : public QObject
     Q_OBJECT
 
 public:
-    explicit                ILManager(QObject *parent = 0);
+    explicit                ILManager();
 
     static ILManager*       instance();
 

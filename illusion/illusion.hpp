@@ -11,7 +11,7 @@ class Illusion : public QObject
     Q_OBJECT
 
 public:
-    explicit                Illusion(QObject* parent = nullptr);
+    explicit                Illusion();
                             ~Illusion();
 
     static Illusion*        instance();

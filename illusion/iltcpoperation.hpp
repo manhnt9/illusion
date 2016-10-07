@@ -1,35 +1,27 @@
 #ifndef ILTCPOPERATION_H
 #define ILTCPOPERATION_H
 
-#include "ilstate.hpp"
+#include "iloperation.hpp"
 #include "ilmessage.hpp"
 #include <asio.hpp>
-#include <QObject>
 
 namespace il {
 
-class ILOperation;
 typedef asio::ip::tcp::socket TcpSocket;
 
-class ILTcpOperation : public QObject
+class ILTcpOperation : public ILOperation
 {
     Q_OBJECT
 
 public:
-    explicit                ILTcpOperation(ILMessage* m, QObject* parent = nullptr);
+    explicit                ILTcpOperation(ILMessage* rq);
                             ILTcpOperation(const ILTcpOperation&) = delete;
     ILTcpOperation&         operator=(const ILTcpOperation&) = delete;
                             ~ILTcpOperation();
 
     void                    connect(asio::ip::tcp::endpoint& endpoint);
 
-    void                    start();
-    void                    finish();
-
-    quint32                 id() const;
-    State                   state() const;
-    quint64                 startTime() const;
-    quint64                 finishTime() const;
+    virtual void            run();
 
     ILMessage*&             request();
     ILMessage*&             reply();
@@ -37,7 +29,7 @@ public:
     std::size_t             bytesSent() const;
     std::size_t             bytesReceived() const;
 
-protected:
+private:
     virtual void            onConnect(const std::error_code& e);
 
     void                    read();
@@ -45,14 +37,12 @@ protected:
     void                    write();
     virtual void            onWrite(const std::error_code& e, const std::size_t bytes);
 
-signals:
-    void                    finished(quint32 id);
-
-protected:
-    ILOperation*            impl_;
-
+private:
     TcpSocket*              socket_;
     asio::streambuf         buffer_;
+
+    ILMessage*              request_;
+    ILMessage*              reply_;
 
     std::size_t             bytesSent_;
     std::size_t             bytesReceived_;

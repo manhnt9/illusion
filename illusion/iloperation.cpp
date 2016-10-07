@@ -4,14 +4,12 @@
 
 namespace il {
 
-ILOperation::ILOperation(QObject *parent)
-    :   QObject(parent),
+ILOperation::ILOperation()
+    :   QObject(nullptr),
         id_(ILManager::instance()->opId(this)),
         state_(State::CREATED),
         startTime_(0),
-        finishTime_(0),
-        request_(nullptr),
-        reply_(nullptr)
+        finishTime_(0)
 {
 
 }
@@ -19,8 +17,6 @@ ILOperation::ILOperation(QObject *parent)
 ILOperation::~ILOperation()
 {
     ILManager::instance()->removeOperation(this->id());
-    delete request_;
-    if (reply_) delete reply_;
 }
 
 } // namespace il

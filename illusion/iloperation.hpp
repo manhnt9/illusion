@@ -2,7 +2,6 @@
 #define ILOPERATION_H
 
 #include "ilstate.hpp"
-#include "ilmessage.hpp"
 #include <QObject>
 
 namespace il {
@@ -12,10 +11,10 @@ class ILOperation : public QObject
     Q_OBJECT
 
 public:
-    explicit                ILOperation(QObject* parent = nullptr);
-                            ILOperation(const ILOperation&) = delete;
-    ILOperation&            operator=(const ILOperation&) = delete;
+                            ILOperation();
                             ~ILOperation();
+
+    virtual void            run() = 0;
 
     void                    start();
     void                    finish();
@@ -24,8 +23,6 @@ public:
     State                   state() const;
     quint64                 startTime() const;
     quint64                 finishTime() const;
-    ILMessage*&             request();
-    ILMessage*&             reply();
 
 signals:
     void                    finished(quint32 id);
@@ -35,9 +32,6 @@ protected:
     State                   state_;
     quint64                 startTime_;
     quint64                 finishTime_;
-
-    ILMessage*              request_;
-    ILMessage*              reply_;
 };
 
 } // namespace il

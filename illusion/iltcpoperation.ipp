@@ -6,15 +6,6 @@
 
 namespace il {
 
-inline void ILTcpOperation::start() {
-    impl_->start();
-}
-
-inline void ILTcpOperation::finish() {
-    impl_->finish();
-    emit finished(id());
-}
-
 inline void ILTcpOperation::connect(asio::ip::tcp::endpoint& endpoint) {
     if (!socket)
         socket_ = new TcpSocket(Illusion::instance()->getService());
@@ -61,30 +52,6 @@ inline void ILTcpOperation::onWrite(const std::error_code& e, const std::size_t 
     }
 
     buffer_.consume(bytes);
-}
-
-inline quint32 ILTcpOperation::id() const {
-    return impl_->id();
-}
-
-inline State ILTcpOperation::state() const {
-    return impl_->state();
-}
-
-inline quint64 ILTcpOperation::startTime() const {
-    return impl_->startTime();
-}
-
-inline quint64 ILTcpOperation::finishTime() const {
-    return impl_->finishTime();
-}
-
-inline ILMessage*& ILTcpOperation::request() {
-    return impl_->request();
-}
-
-inline ILMessage*& ILTcpOperation::reply() {
-    return impl_->reply();
 }
 
 inline std::size_t ILTcpOperation::bytesSent() const {

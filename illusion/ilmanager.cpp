@@ -4,8 +4,8 @@ namespace il {
 
 ILManager* ILManager::instance_ = nullptr;
 
-ILManager::ILManager(QObject *parent)
-    :   QObject(parent),
+ILManager::ILManager()
+    :   QObject(nullptr),
         opId_(0)
 {
 
