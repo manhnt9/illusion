@@ -5,11 +5,10 @@ namespace il {
 
 enum State {
     CREATED,
-    INIT,
     RUNNING,
-    DONE,
-    CANCELED,
-    ERROR
+    TIMEOUT,
+    FAILED,
+    FINISHED
 };
 
 } // namespace il

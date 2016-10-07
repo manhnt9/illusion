@@ -1,7 +1,8 @@
+#include "illusion/illusion.hpp"
 #include <QApplication>
 #include <QMainWindow>
 #include <QDebug>
-#include "illusion/illusion.hpp"
+#include <google/protobuf/message.h>
 
 int main(int argc, char *argv[])
 {
