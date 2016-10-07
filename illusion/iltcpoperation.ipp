@@ -16,6 +16,9 @@ inline void ILTcpOperation::finish() {
 }
 
 inline void ILTcpOperation::connect(asio::ip::tcp::endpoint& endpoint) {
+    if (!socket)
+        socket_ = new TcpSocket(Illusion::instance()->getService());
+
     socket_->async_connect(endpoint, std::bind(&ILTcpOperation::onConnect,
                                                this, std::placeholders::_1));
 }

@@ -7,7 +7,7 @@ namespace il {
 ILTcpOperation::ILTcpOperation(ILMessage *m, QObject *parent)
     :   QObject(parent),
         impl_(new ILOperation(0)),
-        socket_(new TcpSocket(Illusion::instance()->getService())),
+        socket_(nullptr),
         bytesSent_(0),
         bytesReceived_(0)
 {
@@ -18,6 +18,7 @@ ILTcpOperation::ILTcpOperation(ILMessage *m, QObject *parent)
 ILTcpOperation::~ILTcpOperation()
 {
     delete impl_;
+    if (socket_)
     delete socket_;
 }
 
