@@ -7,10 +7,12 @@
 namespace il {
 
 inline void ILOperation::start() {
+    state_ = il::State::RUNNING;
     startTime_ = QDateTime::currentMSecsSinceEpoch();
 }
 
 inline void ILOperation::finish() {
+    state_ = il::State::FINISHED;
     finishTime_ = QDateTime::currentMSecsSinceEpoch();
     emit finished(id_);
 }
