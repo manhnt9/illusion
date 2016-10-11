@@ -2,16 +2,19 @@
 #include <string>
 #include <fstream>
 #include <sys/types.h>
+#include <csignal>
+#include <atomic>
+#include <iostream>
 
 using namespace asio;
 using namespace asio::ip;
 
 static io_service gService;
-static int numClients = 0;
+static std::atomic<std::uint64_t> gCount;
 
 namespace il {
 
-class Client {
+class Client : public std::enable_shared_from_this<Client> {
 public:
                             Client();
                             ~Client();
@@ -28,20 +31,32 @@ private:
 
 } // namespace il
 
+void end(int sig) {
+    // write number of connected sockets
+    std::ofstream f("pid/" + std::to_string(getpid()));
+    f << gCount.load();
+    f.close();
+
+    exit(0);
+}
+
 int main(int argc, char* argv[]) {
     // TODO: handle sigint
+    std::signal(SIGTERM, end);
 
     // write the pid file
     std::ofstream f("pid/" + std::to_string(getpid()));
     f.close();
 
-    il::Client client;
+    gCount = 0;
     tcp::endpoint ep(address_v4::from_string("127.0.0.1"), 8088);
-    client.connect(ep);
+
+    for (int i = 0; i < 1000; ++i) {
+        auto client = std::make_shared<il::Client>();
+        client->connect(ep);
+    }
 
     gService.run();
-
-    // TODO: write number of connections
 
     return 0;
 }
@@ -55,26 +70,30 @@ Client::Client()
 }
 
 void Client::connect(const tcp::endpoint& ep) {
-    socket_.async_connect(ep, std::bind(&Client::onConnect, this, std::placeholders::_1));
+    socket_.async_connect(ep, std::bind(&Client::onConnect,
+                                        shared_from_this(), std::placeholders::_1));
 }
 
 void Client::onConnect(const std::error_code& error) {
     if (!error) {
-
+        ++gCount;
+        read();
     } else {
-
+        std::cout << error.message();
     }
 }
 
 void Client::read() {
-    async_read(socket_, buffer_, std::bind(&Client::onRead, this, std::placeholders::_1));
+    async_read(socket_, buffer_, std::bind(&Client::onRead,
+                                           shared_from_this(), std::placeholders::_1));
 }
 
 void Client::onRead(const std::error_code& error) {
     if (!error) {
 
     } else {
-
+        --gCount;
+        std::cout << error.message();
     }
 }
 
