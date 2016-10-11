@@ -14,7 +14,7 @@ int main(int argc, char* argv[])
     QApplication::setApplicationName("illusion");
     QApplication::setApplicationVersion("1.0");
 
-    il::Illusion::instance()->init(argc, argv);
+    il::Illusion::instance()->init();
 
 //    QMainWindow w;
 //    w.show();

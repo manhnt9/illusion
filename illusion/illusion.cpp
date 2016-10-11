@@ -13,7 +13,7 @@ Illusion::Illusion()
 
 }
 
-void Illusion::init(int argc, char *argv[]) {
+void Illusion::init() {
     cmdLine_.setApplicationDescription("Benchmark your server");
     cmdLine_.addHelpOption();
     cmdLine_.addVersionOption();

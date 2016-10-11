@@ -17,7 +17,7 @@ public:
 
     static Illusion*        instance();
 
-    void                    init(int argc, char* argv[]);
+    void                    init();
 
     asio::io_service&       getService();
     asio::ip::tcp::endpoint getEndpoint() const;

@@ -1,4 +1,5 @@
 #include "iltcpoperation.hpp"
+#include <google/protobuf/message.h>
 
 namespace il {
 
