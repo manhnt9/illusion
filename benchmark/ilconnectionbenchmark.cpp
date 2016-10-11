@@ -1,10 +1,10 @@
 #include "ilconnectionbenchmark.hpp"
+#include <fstream>
+#include <thread>
 #include <glog/logging.h>
 #include <QDir>
 #include <QDirIterator>
 #include <QThread>
-#include <fstream>
-#include <thread>
 
 namespace il {
 

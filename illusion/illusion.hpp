@@ -3,6 +3,7 @@
 
 #include <asio.hpp>
 #include <QObject>
+#include <QCommandLineParser>
 
 namespace il {
 
@@ -16,6 +17,8 @@ public:
 
     static Illusion*        instance();
 
+    void                    init(int argc, char* argv[]);
+
     asio::io_service&       getService();
     asio::ip::tcp::endpoint getEndpoint() const;
 
@@ -28,6 +31,8 @@ private:
     asio::io_service        service_;
     asio::io_service::work* work_;
     asio::ip::tcp::endpoint endpoint_;
+
+    QCommandLineParser      cmdLine_;
 };
 
 } // namespace il
