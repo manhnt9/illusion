@@ -28,7 +28,7 @@ void ILConnectionBenchmark::run(quint64 numClient) {
 
     auto cmd = connectPath + ip_.toStdString() + " " + std::to_string(port_) + " " + pidPath + " &";
 
-    for (int i = 0; i < numClient; ++i) {
+    for (quint64 i = 0; i < numClient; ++i) {
         std::this_thread::sleep_for(std::chrono::seconds(1));
         std::system(cmd.c_str());
         DLOG(INFO) << "Connection benchmark: client invoked, remaining "  << numClient-i-1 << " s" ;
