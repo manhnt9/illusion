@@ -45,7 +45,8 @@ SOURCES             += main.cpp \
                         illusion/illusion.cpp \
                         illusion/ilmanager.cpp \
                         benchmark/ilbenchmark.cpp \
-                        benchmark/ildelayedoperation.cpp
+                        benchmark/ildelayedoperation.cpp \
+                        benchmark/ilconnectionbenchmark.cpp
 
 HEADERS             += illusion/illusion.hpp \
                         illusion/illusion.ipp \
@@ -60,6 +61,7 @@ HEADERS             += illusion/illusion.hpp \
                         message/ilmessage.hpp \
                         benchmark/ilbenchmark.ipp \
                         benchmark/ilbenchmark.hpp \
-                        benchmark/ildelayedoperation.hpp
+                        benchmark/ildelayedoperation.hpp \
+                        benchmark/ilconnectionbenchmark.hpp
 
 DISTFILES           += message/message.proto
