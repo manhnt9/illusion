@@ -48,8 +48,13 @@ int main(int argc, char* argv[]) {
     std::ofstream f("pid/" + std::to_string(getpid()));
     f.close();
 
+    if (argc < 2) {
+        std::cout << "Usage: ./connect ip port" << std::endl;
+        exit(-1);
+    }
+
     gCount = 0;
-    tcp::endpoint ep(address_v4::from_string("127.0.0.1"), 8088);
+    tcp::endpoint ep(address_v4::from_string(argv[1]), argv[2]);
 
     for (int i = 0; i < 1000; ++i) {
         auto client = std::make_shared<il::Client>();
