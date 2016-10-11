@@ -18,7 +18,7 @@ ILConnectionBenchmark::ILConnectionBenchmark(QString ip, quint16 port)
 }
 
 void ILConnectionBenchmark::run(quint64 numClient) {
-    LOG(INFO) << "Connection benmark started for 60s";
+    LOG(INFO) << "Connection benchmark started for 60s";
 
     auto basePath = QDir::currentPath().toStdString() + "/connect";
     auto connectPath = basePath + "/ilconnect ";
@@ -34,10 +34,10 @@ void ILConnectionBenchmark::run(quint64 numClient) {
         DLOG(INFO) << "Connection benchmark: client invoked, remaining "  << numClient-i-1 << " s" ;
     }
 
-    LOG(INFO) << "Connection benmark: invoked " << numClient << " clients";
+    LOG(INFO) << "Connection benchmark: invoked " << numClient << " clients";
 
     // wait for clients
-    LOG(INFO) << "Connection benmark completed, 5s to collect results";
+    LOG(INFO) << "Connection benchmark completed, 5s to collect results";
 
     std::this_thread::sleep_for(std::chrono::seconds(5));
 
