@@ -1,3 +1,5 @@
 illusion.pro.user
 *pb.h
 *pb.cc
+connect/pid/*
+connect/connect
