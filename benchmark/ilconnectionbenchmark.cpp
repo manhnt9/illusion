@@ -31,7 +31,7 @@ void ILConnectionBenchmark::run(quint64 numClient) {
     for (quint64 i = 0; i < numClient; ++i) {
         std::this_thread::sleep_for(std::chrono::seconds(1));
         std::system(cmd.c_str());
-        DLOG(INFO) << "Connection benchmark: client invoked, remaining "  << numClient-i-1 << " s" ;
+        DLOG(INFO) << "Connection benchmark: client invoked, remaining "  << numClient-i-1 << "s" ;
     }
 
     LOG(INFO) << "Connection benchmark: invoked " << numClient << " clients";
