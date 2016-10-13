@@ -23,11 +23,14 @@ include(protobuf.pri)
 CONFIG(private) {
     SOURCES         += vt/vtmessage.cpp \
                         vt/vthttpoperation.cpp \
-                        vt/vtpostoperation.cpp
+                        vt/vtpostoperation.cpp \
+                        vt/vttcpoperation.cpp
 
     HEADERS         += vt/vthttpoperation.hpp \
                         vt/vthttpoperation.ipp \
-                        vt/vtpostoperation.hpp
+                        vt/vtpostoperation.hpp \
+                        vt/vttcpoperation.hpp \
+                        vt/vttcpoperation.ipp
 
     PROTOS          += vt/proto/comm.account.proto \
                         vt/proto/comm.chat.proto \

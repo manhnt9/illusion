@@ -29,17 +29,16 @@ public:
     std::size_t             bytesSent() const;
     std::size_t             bytesReceived() const;
 
-private:
+protected:
     virtual void            onConnect(const std::error_code& e);
 
-    void                    read();
-    virtual void            onRead(const std::error_code& e, const std::size_t bytes);
-    void                    write();
-    virtual void            onWrite(const std::error_code& e, const std::size_t bytes);
+    virtual void            read() = 0;
+    virtual void            onRead(const std::error_code& e, const std::size_t bytes) = 0;
+    virtual void            write() = 0;
+    virtual void            onWrite(const std::error_code& e, const std::size_t bytes) = 0;
 
-private:
+protected:
     TcpSocket*              socket_;
-    asio::streambuf         buffer_;
 
     ILMessage*              request_;
     ILMessage*              reply_;
