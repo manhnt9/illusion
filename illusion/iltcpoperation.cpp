@@ -4,7 +4,8 @@
 namespace il {
 
 ILTcpOperation::ILTcpOperation(ILMessage *rq)
-    :   socket_(nullptr),
+    :   ILOperation(),
+        socket_(nullptr),
         request_(rq),
         reply_(nullptr),
         bytesSent_(0),
