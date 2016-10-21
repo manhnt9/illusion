@@ -2,13 +2,17 @@
 #include "illusion/iloperation.hpp"
 #include "illusion/ilmanager.hpp"
 #include "ildelayedoperation.hpp"
+#include "illusion/illusion.hpp"
+#include <chrono>
 
 namespace il {
 
 ILBenchmark::ILBenchmark(quint64 duration, quint64 delayMsec)
     :   QObject(nullptr),
         duration_(duration),
-        delay_(delayMsec)
+        delay_(delayMsec),
+        timer_(Illusion::instance()->getService()),
+        done_(false)
 {
 
 }
@@ -19,12 +23,21 @@ void ILBenchmark::addOperation(ILOperation* op) {
 }
 
 void ILBenchmark::run() {
+    timer_.expires_from_now(std::chrono::seconds(duration_));
+    timer_.async_wait([this] (const std::error_code& e) {
+        if (!e)
+            this->done_ = true;
+    });
+
     for (const auto& op : opList_) {
         op->run();
     }
 }
 
 void ILBenchmark::runNext(quint64 id) {
+    if (done_)
+        return;
+
     ILOperation* op = ILManager::instance()->getOperation(id);
     hook_(op);
     auto o = std::make_shared<ILDelayedOperation>(op);

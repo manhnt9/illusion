@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QVector>
 #include <functional>
+#include <asio/steady_timer.hpp>
 
 namespace il {
 
@@ -28,6 +29,8 @@ private slots:
 private:
     quint64                 duration_;
     quint64                 delay_;
+    asio::steady_timer      timer_;
+    bool                    done_;
 
     QVector<ILOperation*>   opList_;
 
