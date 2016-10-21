@@ -42,10 +42,10 @@ void Illusion::init() {
 
     if (!cmdLine_.value(hostOption).length()) {
         LOG(ERROR) << "No host specified via the command-line";
-        exit(-1);
+        return;
     } else if (!cmdLine_.value(portOption).length()){
         LOG(ERROR) << "No port specified via the command-line";
-        exit(-1);
+        return;
     }
 
     endpoint_ = asio::ip::tcp::endpoint(asio::ip::address_v4::from_string(cmdLine_.value(hostOption).toStdString()),

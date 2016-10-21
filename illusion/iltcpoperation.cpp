@@ -11,7 +11,8 @@ ILTcpOperation::ILTcpOperation(ILMessage *rq)
         bytesSent_(0),
         bytesReceived_(0)
 {
-
+    Q_ASSERT(rq);
+    Q_ASSERT(rq->IsInitialized());
 }
 
 void ILTcpOperation::run() {
