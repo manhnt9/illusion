@@ -5,11 +5,10 @@
 
 namespace il {
 
-ILBenchmark::ILBenchmark(const QString& messName, quint64 duration, quint64 delay)
+ILBenchmark::ILBenchmark(quint64 duration, quint64 delayMsec)
     :   QObject(nullptr),
-        messageName_(messName),
         duration_(duration),
-        delay_(delay)
+        delay_(delayMsec)
 {
 
 }
@@ -26,8 +25,8 @@ void ILBenchmark::run() {
 }
 
 void ILBenchmark::runNext(quint64 id) {
-    // TODO: generate new message and run delayed operation
     ILOperation* op = ILManager::instance()->getOperation(id);
+    hook_(op);
     auto o = std::make_shared<ILDelayedOperation>(op);
     o->run(delay_);
 }
