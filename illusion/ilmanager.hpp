@@ -4,13 +4,16 @@
 #include <QObject>
 #include <QHash>
 #include <QList>
+#include <memory>
 
 namespace il {
 
 class ILOperation;
 class ILBenchmark;
-typedef QHash<quint64, ILOperation*> OpList;
-typedef QList<ILBenchmark*> BenchList;
+typedef std::shared_ptr<ILOperation> ILOperationPtr;
+typedef std::shared_ptr<ILBenchmark> ILBenchmarkPtr;
+typedef QHash<quint64, ILOperationPtr> OpList;
+typedef QList<ILBenchmarkPtr> BenchList;
 
 class ILManager : public QObject
 {
@@ -21,13 +24,13 @@ public:
 
     static ILManager*       instance();
 
-    quint64                 addOperation(ILOperation* op);
-    ILOperation*            getOperation(quint64 id) const;
+    quint64                 addOperation(ILOperationPtr op);
+    ILOperationPtr          getOperation(quint64 id) const;
     void                    removeOperation(quint64 id);
 
-    void                    addBenchmark(ILBenchmark* bench);
-    void                    removeBenchmark(ILBenchmark* bench);
-    ILBenchmark*            getBenchmark(int index) const;
+    void                    addBenchmark(ILBenchmarkPtr bench);
+    void                    removeBenchmark(ILBenchmarkPtr bench);
+    ILBenchmarkPtr          getBenchmark(int index) const;
     int                     benchmarkCount() const;
 
 private:

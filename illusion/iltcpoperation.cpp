@@ -3,7 +3,7 @@
 
 namespace il {
 
-ILTcpOperation::ILTcpOperation(ILMessage *rq)
+ILTcpOperation::ILTcpOperation(ILMessagePtr rq)
     :   ILOperation(),
         socket_(nullptr),
         bytesSent_(0),

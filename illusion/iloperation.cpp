@@ -6,7 +6,7 @@ namespace il {
 
 ILOperation::ILOperation()
     :   QObject(nullptr),
-        id_(ILManager::instance()->addOperation(this)),
+        id_(0),
         state_(State::CREATED),
         startTime_(0),
         finishTime_(0),
@@ -18,12 +18,7 @@ ILOperation::ILOperation()
 
 ILOperation::~ILOperation()
 {
-    if (request_)
-        delete request_;
-    if (reply_)
-        delete reply_;
 
-    ILManager::instance()->removeOperation(this->id());
 }
 
 } // namespace il

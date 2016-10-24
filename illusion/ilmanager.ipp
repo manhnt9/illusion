@@ -10,12 +10,12 @@ inline ILManager* ILManager::instance() {
     return instance_;
 }
 
-inline quint64 ILManager::addOperation(ILOperation* op) {
+inline quint64 ILManager::addOperation(ILOperationPtr op) {
     opList_.insert(opId_, op);
     return opId_++;
 }
 
-inline ILOperation* ILManager::getOperation(quint64 id) const {
+inline ILOperationPtr ILManager::getOperation(quint64 id) const {
     return opList_.value(id);
 }
 
@@ -23,15 +23,15 @@ inline void ILManager::removeOperation(quint64 id) {
     opList_.remove(id);
 }
 
-inline void ILManager::addBenchmark(ILBenchmark* bench) {
+inline void ILManager::addBenchmark(ILBenchmarkPtr bench) {
     benchList_.push_back(bench);
 }
 
-inline ILBenchmark* ILManager::getBenchmark(int index) const {
+inline ILBenchmarkPtr ILManager::getBenchmark(int index) const {
    return benchList_.at(index);
 }
 
-inline void ILManager::removeBenchmark(ILBenchmark* bench) {
+inline void ILManager::removeBenchmark(ILBenchmarkPtr bench) {
     benchList_.removeOne(bench);
 }
 

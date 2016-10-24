@@ -58,7 +58,6 @@ HEADERS             += illusion/illusion.hpp \
                         illusion/iltcpoperation.hpp \
                         illusion/iltcpoperation.ipp \
                         illusion/ilstate.hpp \
-                        illusion/iltype.hpp \
                         illusion/ilmanager.hpp \
                         illusion/ilmanager.ipp \
                         message/ilmessage.hpp \

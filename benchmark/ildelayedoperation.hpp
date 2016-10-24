@@ -6,16 +6,17 @@
 namespace il {
 
 class ILOperation;
+typedef std::shared_ptr<ILOperation> ILOperationPtr;
 
 class ILDelayedOperation : public std::enable_shared_from_this<ILDelayedOperation>
 {    
 public:                                
-    explicit                    ILDelayedOperation(ILOperation* op);
+    explicit                    ILDelayedOperation(ILOperationPtr op);
 
     void                        run(std::uint64_t delay);
 
 private:
-    ILOperation*                op_;
+    ILOperationPtr              op_;
     asio::steady_timer          timer_;
 };
 

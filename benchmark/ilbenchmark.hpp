@@ -9,7 +9,8 @@
 namespace il {
 
 class ILOperation;
-typedef std::function<void(ILOperation*)> OperationHook;
+typedef std::shared_ptr<ILOperation> ILOperationPtr;
+typedef std::function<void(ILOperationPtr)> OperationHook;
 
 class ILBenchmark : public QObject
 {
@@ -22,11 +23,11 @@ public:
     void                    run();
 
     void                    setOperationHook(OperationHook&& hook);
-    void                    addOperation(ILOperation* op);
+    void                    addOperation(ILOperationPtr op);
 
     quint64                 totalOps() const;
-    ILOperation*            fastestOp() const;
-    ILOperation*            slowestOp() const;
+    ILOperationPtr          fastestOp() const;
+    ILOperationPtr          slowestOp() const;
     quint64                 speed() const;
 
 signals:
@@ -36,15 +37,15 @@ private slots:
     void                    runNext(quint64 id);
 
 private:
-    QVector<ILOperation*>   opList_;
+    QVector<ILOperationPtr> opList_;
     quint64                 duration_;
     quint64                 delay_;
     asio::steady_timer      timer_;
     bool                    done_;
 
     quint64                 totalOps_;
-    ILOperation*            fastestOp_;
-    ILOperation*            slowestOp_;
+    ILOperationPtr          fastestOp_;
+    ILOperationPtr          slowestOp_;
     quint64                 speed_;
 
 private:

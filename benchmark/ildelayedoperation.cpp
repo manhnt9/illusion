@@ -6,7 +6,7 @@
 
 namespace il {
 
-ILDelayedOperation::ILDelayedOperation(ILOperation* op)
+ILDelayedOperation::ILDelayedOperation(ILOperationPtr op)
     :   op_(op),
         timer_(Illusion::instance()->getService())
 {

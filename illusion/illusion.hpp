@@ -1,6 +1,7 @@
 #ifndef ILLUSION_H
 #define ILLUSION_H
 
+#include "ilmanager.hpp"
 #include <asio.hpp>
 #include <QObject>
 #include <QCommandLineParser>
@@ -21,6 +22,9 @@ public:
 
     asio::io_service&       getService();
     asio::ip::tcp::endpoint getEndpoint() const;
+
+    void                    addBenchmark(ILBenchmarkPtr bench) const;
+    void                    removeBenchmark(ILBenchmarkPtr bench) const;
 
     void                    run();
     void                    stop();

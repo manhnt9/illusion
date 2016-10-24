@@ -20,12 +20,13 @@ ILBenchmark::ILBenchmark(quint64 duration, quint64 delayMsec)
         slowestOp_(nullptr),
         speed_(0)
 {
-    ILManager::instance()->addBenchmark(this);
+
 }
 
-void ILBenchmark::addOperation(ILOperation* op) {
+void ILBenchmark::addOperation(ILOperationPtr op) {
+    op->setId(ILManager::instance()->addOperation(op));
     opList_.push_back(op);
-    connect(op, &ILOperation::finished, this, &ILBenchmark::runNext);
+    connect(op.get(), &ILOperation::finished, this, &ILBenchmark::runNext);
 }
 
 void ILBenchmark::run() {
@@ -56,13 +57,13 @@ void ILBenchmark::runNext(quint64 id) {
     if (done_)
         return;
 
-    ILOperation* op = ILManager::instance()->getOperation(id);
-    hook_(op);
+    auto op = ILManager::instance()->getOperation(id);
+
+    if (hook_)
+        hook_(op);
 
     auto o = std::make_shared<ILDelayedOperation>(op);
     o->run(delay_);
-
-    DLOG(INFO) << "Op time: " << op->duration();
 
     if (fastestOp_) {
         if (op->duration() < fastestOp_->duration())
@@ -80,7 +81,7 @@ void ILBenchmark::runNext(quint64 id) {
 }
 
 ILBenchmark::~ILBenchmark() {
-    ILManager::instance()->removeBenchmark(this);
+
 }
 
 } // namespace il

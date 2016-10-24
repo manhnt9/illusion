@@ -14,7 +14,7 @@ class ILTcpOperation : public ILOperation
     Q_OBJECT
 
 public:
-    explicit                ILTcpOperation(ILMessage* rq);
+    explicit                ILTcpOperation(ILMessagePtr rq);
                             ILTcpOperation(const ILTcpOperation&) = delete;
     ILTcpOperation&         operator=(const ILTcpOperation&) = delete;
                             ~ILTcpOperation();

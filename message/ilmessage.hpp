@@ -1,6 +1,8 @@
 #ifndef ILMESSAGE_HPP
 #define ILMESSAGE_HPP
 
+#include <memory>
+
 class QString;
 class QStringList;
 
@@ -13,6 +15,7 @@ namespace protobuf {
 namespace il {
 
 typedef google::protobuf::Message ILMessage;
+typedef std::shared_ptr<ILMessage> ILMessagePtr;
 
 namespace message {
 

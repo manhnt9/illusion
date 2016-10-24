@@ -17,7 +17,11 @@ inline void ILOperation::finish() {
     emit finished(id_);
 }
 
-inline quint32 ILOperation::id() const {
+inline void ILOperation::setId(quint64 id) {
+    id_ = id;
+}
+
+inline quint64 ILOperation::id() const {
     return id_;
 }
 
@@ -37,11 +41,11 @@ inline quint64 ILOperation::duration() const {
     return finishTime_ - startTime_;
 }
 
-inline ILMessage*& ILOperation::request() {
+inline ILMessagePtr ILOperation::request() const {
     return request_;
 }
 
-inline ILMessage*& ILOperation::reply() {
+inline ILMessagePtr ILOperation::reply() const {
     return reply_;
 }
 
