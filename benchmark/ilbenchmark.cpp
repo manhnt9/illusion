@@ -16,8 +16,8 @@ ILBenchmark::ILBenchmark(quint64 duration, quint64 delayMsec)
         timer_(Illusion::instance()->getService()),
         done_(false),
         totalOps_(0),
-        fastestOp_(nullptr),
-        slowestOp_(nullptr),
+        fastestResponse_(0),
+        slowestResponse_(0),
         speed_(0)
 {
 
@@ -42,8 +42,8 @@ void ILBenchmark::run() {
 
             DLOG(INFO) << "Total operations: " << totalOps_;
             DLOG(INFO) << "Average speed: " << speed_ << " operations/s";
-            DLOG(INFO) << "Fastest response: " << fastestOp_->duration();
-            DLOG(INFO) << "Slowest response: " << slowestOp_->duration();
+            DLOG(INFO) << "Fastest response: " << fastestResponse_;
+            DLOG(INFO) << "Slowest response: " << slowestResponse_;
         }
     });
 
@@ -65,17 +65,17 @@ void ILBenchmark::runNext(quint64 id) {
     auto o = std::make_shared<ILDelayedOperation>(op);
     o->run(delay_);
 
-    if (fastestOp_) {
-        if (op->duration() < fastestOp_->duration())
-            fastestOp_ = op;
+    if (fastestResponse_) {
+        if (op->duration() < fastestResponse_)
+            fastestResponse_ = op->duration();
     } else
-        fastestOp_ = op;
+        fastestResponse_ = op->duration();
 
-    if (slowestOp_) {
-        if (op->duration() > slowestOp_->duration())
-            slowestOp_ = op;
+    if (slowestResponse_) {
+        if (op->duration() > slowestResponse_)
+            slowestResponse_ = op->duration();
     } else
-        slowestOp_ = op;
+        slowestResponse_ = op->duration();
 
     ++totalOps_;
 }

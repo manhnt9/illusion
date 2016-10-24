@@ -11,12 +11,12 @@ inline quint64 ILBenchmark::totalOps() const {
     return totalOps_;
 }
 
-inline ILOperationPtr ILBenchmark::fastestOp() const {
-    return fastestOp_;
+inline quint64 ILBenchmark::fastestResponse() const {
+    return fastestResponse_;
 }
 
-inline ILOperationPtr ILBenchmark::slowestOp() const {
-    return slowestOp_;
+inline quint64 ILBenchmark::slowestResponse() const {
+    return slowestResponse_;
 }
 
 inline quint64 ILBenchmark::speed() const {

@@ -26,8 +26,8 @@ public:
     void                    addOperation(ILOperationPtr op);
 
     quint64                 totalOps() const;
-    ILOperationPtr          fastestOp() const;
-    ILOperationPtr          slowestOp() const;
+    quint64                 fastestResponse() const;
+    quint64                 slowestResponse() const;
     quint64                 speed() const;
 
 signals:
@@ -44,8 +44,8 @@ private:
     bool                    done_;
 
     quint64                 totalOps_;
-    ILOperationPtr          fastestOp_;
-    ILOperationPtr          slowestOp_;
+    quint64                 fastestResponse_;
+    quint64                 slowestResponse_;
     quint64                 speed_;
 
 private:
