@@ -41,6 +41,7 @@ void ILBenchmark::run() {
             emit finished();
 
             DLOG(INFO) << "Total operations: " << totalOps_;
+            DLOG(INFO) << "Duration: " << duration_;
             DLOG(INFO) << "Average speed: " << speed_ << " operations/s";
             DLOG(INFO) << "Fastest response: " << fastestResponse_;
             DLOG(INFO) << "Slowest response: " << slowestResponse_;
