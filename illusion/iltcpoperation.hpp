@@ -23,9 +23,6 @@ public:
 
     virtual void            run();
 
-    ILMessage*&             request();
-    ILMessage*&             reply();
-
     std::size_t             bytesSent() const;
     std::size_t             bytesReceived() const;
 
@@ -37,9 +34,6 @@ private:
 
 protected:
     TcpSocket*              socket_;
-
-    ILMessage*              request_;
-    ILMessage*              reply_;
 
     std::size_t             bytesSent_;
     std::size_t             bytesReceived_;

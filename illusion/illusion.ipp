@@ -22,14 +22,14 @@ inline asio::ip::tcp::endpoint Illusion::getEndpoint() const {
 }
 
 inline void Illusion::stop() {
-    LOG(INFO) << "Stopping benchmark";
+    LOG(INFO) << "Stopping ...";
 
     delete work_;
     service_.stop();
 }
 
 inline void Illusion::run() {
-    LOG(INFO) << "Benchmark has started";
+    LOG(INFO) << "Running all benchmarks";
 
     work_ = new asio::io_service::work(service_);
 

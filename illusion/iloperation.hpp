@@ -2,6 +2,7 @@
 #define ILOPERATION_H
 
 #include "ilstate.hpp"
+#include "ilmessage.hpp"
 #include <QObject>
 
 namespace il {
@@ -21,6 +22,9 @@ public:
     quint64                 startTime() const;
     quint64                 finishTime() const;
 
+    ILMessage*&             request();
+    ILMessage*&             reply();
+
 signals:
     void                    finished(quint32 id);
 
@@ -32,6 +36,9 @@ protected:
     State                   state_;
     quint64                 startTime_;
     quint64                 finishTime_;
+
+    ILMessage*              request_;
+    ILMessage*              reply_;
 };
 
 } // namespace il
