@@ -36,15 +36,17 @@ void ILBenchmark::run() {
     timer_.async_wait([this] (const std::error_code& e) {
         if (!e) {
             this->done_ = true;
-            DLOG(INFO) << opList_.first()->request()->GetTypeName() << " benchmark finished after " << duration_ << " seconds";
+            DLOG(INFO) << opList_.first()->request()->GetTypeName() << " benchmark finished";
             speed_ = totalOps_ / duration_;
             emit finished();
 
+            DLOG(INFO) << "Clients: " << opList_.size();
+            DLOG(INFO) << "Delay: " << delay_ << " ms";
             DLOG(INFO) << "Total operations: " << totalOps_;
-            DLOG(INFO) << "Duration: " << duration_;
+            DLOG(INFO) << "Duration: " << duration_ << " s";
             DLOG(INFO) << "Average speed: " << speed_ << " operations/s";
-            DLOG(INFO) << "Fastest response: " << fastestResponse_;
-            DLOG(INFO) << "Slowest response: " << slowestResponse_;
+            DLOG(INFO) << "Fastest response: " << fastestResponse_ << " ms";
+            DLOG(INFO) << "Slowest response: " << slowestResponse_ << " ms";
         }
     });
 
