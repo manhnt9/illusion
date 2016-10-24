@@ -37,6 +37,12 @@ void ILBenchmark::run() {
             this->done_ = true;
             DLOG(INFO) << opList_.first()->request()->GetTypeName() << " benchmark finished after " << duration_ << " seconds";
             speed_ = totalOps_ / duration_;
+            emit finished();
+
+            DLOG(INFO) << "Total operations: " << totalOps_;
+            DLOG(INFO) << "Average speed: " << speed_ << " operations/s";
+            DLOG(INFO) << "Fastest response: " << fastestOp_->duration();
+            DLOG(INFO) << "Slowest response: " << slowestOp_->duration();
         }
     });
 
@@ -52,8 +58,11 @@ void ILBenchmark::runNext(quint64 id) {
 
     ILOperation* op = ILManager::instance()->getOperation(id);
     hook_(op);
+
     auto o = std::make_shared<ILDelayedOperation>(op);
     o->run(delay_);
+
+    DLOG(INFO) << "Op time: " << op->duration();
 
     if (fastestOp_) {
         if (op->duration() < fastestOp_->duration())

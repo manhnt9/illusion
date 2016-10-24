@@ -29,6 +29,9 @@ public:
     ILOperation*            slowestOp() const;
     quint64                 speed() const;
 
+signals:
+    void                    finished();
+
 private slots:
     void                    runNext(quint64 id);
 
