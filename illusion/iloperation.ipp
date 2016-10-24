@@ -33,6 +33,10 @@ inline quint64 ILOperation::finishTime() const {
     return finishTime_;
 }
 
+inline quint64 ILOperation::duration() const {
+    return finishTime_ - startTime_;
+}
+
 inline ILMessage*& ILOperation::request() {
     return request_;
 }

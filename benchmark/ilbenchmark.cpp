@@ -14,7 +14,11 @@ ILBenchmark::ILBenchmark(quint64 duration, quint64 delayMsec)
         duration_(duration),
         delay_(delayMsec),
         timer_(Illusion::instance()->getService()),
-        done_(false)
+        done_(false),
+        totalOps_(0),
+        fastestOp_(nullptr),
+        slowestOp_(nullptr),
+        speed_(0)
 {
     ILManager::instance()->addBenchmark(this);
 }
@@ -32,11 +36,13 @@ void ILBenchmark::run() {
         if (!e) {
             this->done_ = true;
             DLOG(INFO) << opList_.first()->request()->GetTypeName() << " benchmark finished after " << duration_ << " seconds";
+            speed_ = totalOps_ / duration_;
         }
     });
 
     for (const auto& op : opList_) {
         op->run();
+        ++totalOps_;
     }
 }
 
@@ -48,6 +54,20 @@ void ILBenchmark::runNext(quint64 id) {
     hook_(op);
     auto o = std::make_shared<ILDelayedOperation>(op);
     o->run(delay_);
+
+    if (fastestOp_) {
+        if (op->duration() < fastestOp_->duration())
+            fastestOp_ = op;
+    } else
+        fastestOp_ = op;
+
+    if (slowestOp_) {
+        if (op->duration() > slowestOp_->duration())
+            slowestOp_ = op;
+    } else
+        slowestOp_ = op;
+
+    ++totalOps_;
 }
 
 ILBenchmark::~ILBenchmark() {

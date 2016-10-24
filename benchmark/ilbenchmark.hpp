@@ -24,16 +24,25 @@ public:
     void                    setOperationHook(OperationHook&& hook);
     void                    addOperation(ILOperation* op);
 
+    quint64                 totalOps() const;
+    ILOperation*            fastestOp() const;
+    ILOperation*            slowestOp() const;
+    quint64                 speed() const;
+
 private slots:
     void                    runNext(quint64 id);
 
 private:
+    QVector<ILOperation*>   opList_;
     quint64                 duration_;
     quint64                 delay_;
     asio::steady_timer      timer_;
     bool                    done_;
 
-    QVector<ILOperation*>   opList_;
+    quint64                 totalOps_;
+    ILOperation*            fastestOp_;
+    ILOperation*            slowestOp_;
+    quint64                 speed_;
 
 private:
     OperationHook           hook_;

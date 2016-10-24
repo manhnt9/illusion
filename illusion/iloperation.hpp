@@ -21,6 +21,7 @@ public:
     State                   state() const;
     quint64                 startTime() const;
     quint64                 finishTime() const;
+    quint64                 duration() const;
 
     ILMessage*&             request();
     ILMessage*&             reply();
