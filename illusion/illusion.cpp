@@ -1,5 +1,7 @@
 #include "illusion.hpp"
 #include "benchmark/ilconnectionbenchmark.hpp"
+#include "benchmark/ilbenchmark.hpp"
+#include "ilmanager.hpp"
 #include <glog/logging.h>
 #include <QCommandLineParser>
 #include <QApplication>
@@ -60,6 +62,22 @@ void Illusion::init() {
         ILConnectionBenchmark bench(endpoint_.address().to_string().c_str(), endpoint_.port());
         bench.run(num);
     }
+}
+
+void Illusion::run() {
+    LOG(INFO) << "Running all benchmarks";
+
+    for (int i = 0; i < ILManager::instance()->benchmarkCount(); ++i) {
+        ILManager::instance()->getBenchmark(i)->run();
+    }
+
+    work_ = new asio::io_service::work(service_);
+
+    std::thread t([&] () {
+        this->service_.run();
+    });
+
+    t.detach();
 }
 
 Illusion::~Illusion() {

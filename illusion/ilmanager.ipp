@@ -23,6 +23,22 @@ inline void ILManager::removeOperation(quint64 id) {
     opList_.remove(id);
 }
 
+inline void ILManager::addBenchmark(ILBenchmark* bench) {
+    benchList_.push_back(bench);
+}
+
+inline ILBenchmark* ILManager::getBenchmark(int index) const {
+   return benchList_.at(index);
+}
+
+inline void ILManager::removeBenchmark(ILBenchmark* bench) {
+    benchList_.removeOne(bench);
+}
+
+inline int ILManager::benchmarkCount() const {
+    return benchList_.size();
+}
+
 } // namespace il
 
 #endif // ILMANAGER_IPP

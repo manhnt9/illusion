@@ -17,6 +17,7 @@ class ILBenchmark : public QObject
 
 public:
     explicit                ILBenchmark(quint64 duration, quint64 delayMsec);
+                            ~ILBenchmark();
 
     void                    run();
 

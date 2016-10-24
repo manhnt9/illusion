@@ -28,18 +28,6 @@ inline void Illusion::stop() {
     service_.stop();
 }
 
-inline void Illusion::run() {
-    LOG(INFO) << "Running all benchmarks";
-
-    work_ = new asio::io_service::work(service_);
-
-    std::thread t([&] () {
-        this->service_.run();
-    });
-
-    t.detach();
-}
-
 } // namespace il
 
 #endif // ILLUSION_IPP
