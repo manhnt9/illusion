@@ -39,6 +39,11 @@ void Illusion::init() {
         QCoreApplication::translate("main", "Set max connections for connection benchmark (default is 60 which means 60k)"));
     cmdLine_.addOption(connNumOpion);
 
+    QCommandLineOption listBenchOption(QStringList() << "lb" << "list-benchmarks",
+        QCoreApplication::translate("main", "List all benchmarks"));
+    cmdLine_.addOption(listBenchOption);
+
+
     cmdLine_.process(*QApplication::instance());
 
     if (cmdLine_.value(hostOption).length() && cmdLine_.value(portOption).length()) {
@@ -62,6 +67,8 @@ void Illusion::init() {
 
         ILConnectionBenchmark bench(endpoint_.address().to_string().c_str(), endpoint_.port());
         bench.run(num);
+    } else if (cmdLine_.isSet(listBenchOption)) {
+        il::benchmark::listBenchmarks();
     }
 }
 
