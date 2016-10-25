@@ -2,7 +2,6 @@
 #include "illusion/iloperation.hpp"
 #include "illusion/illusion.hpp"
 #include <chrono>
-#include <glog/logging.h>
 
 namespace il {
 

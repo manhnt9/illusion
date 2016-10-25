@@ -2,7 +2,6 @@
 #include "benchmark/ilconnectionbenchmark.hpp"
 #include "benchmark/ilbenchmark.hpp"
 #include "ilmanager.hpp"
-#include <glog/logging.h>
 #include <QCommandLineParser>
 #include <QApplication>
 
@@ -43,12 +42,12 @@ void Illusion::init() {
     cmdLine_.process(*QApplication::instance());
 
     if (!cmdLine_.value(hostOption).length()) {
-        DLOG(INFO) << "No host specified via the command-line";
+        IL_PRINT << "No host specified via the command-line";
         return;
     }
 
     if (!cmdLine_.value(portOption).length()){
-        DLOG(ERROR) << "No port specified via the command-line";
+        IL_PRINT << "No port specified via the command-line";
         return;
     }
 
@@ -67,7 +66,7 @@ void Illusion::init() {
 }
 
 void Illusion::run() {
-    DLOG(INFO) << "Running all benchmarks";
+    IL_PRINT << "Running all benchmarks";
 
     for (int i = 0; i < ILManager::instance()->benchmarkCount(); ++i) {
         ILManager::instance()->getBenchmark(i)->run();

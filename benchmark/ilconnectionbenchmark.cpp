@@ -1,7 +1,7 @@
 #include "ilconnectionbenchmark.hpp"
+#include "illusion/ilprint.hpp"
 #include <fstream>
 #include <thread>
-#include <glog/logging.h>
 #include <QDir>
 #include <QDirIterator>
 #include <QThread>
@@ -18,7 +18,7 @@ ILConnectionBenchmark::ILConnectionBenchmark(QString ip, quint16 port)
 }
 
 void ILConnectionBenchmark::run(quint64 numClient) {
-    DLOG(INFO) << "Connection benchmark started for 60s";
+    IL_PRINT << "Connection benchmark started for 60s";
 
     auto basePath = QDir::currentPath().toStdString() + "/connect";
     auto connectPath = basePath + "/ilconnect ";
@@ -31,13 +31,13 @@ void ILConnectionBenchmark::run(quint64 numClient) {
     for (quint64 i = 0; i < numClient; ++i) {
         std::this_thread::sleep_for(std::chrono::seconds(1));
         std::system(cmd.c_str());
-        DLOG(INFO) << "Connection benchmark: client invoked, remaining "  << numClient-i-1 << "s" ;
+        IL_PRINT << "Connection benchmark: client invoked, remaining "  << numClient-i-1 << "s" ;
     }
 
-    DLOG(INFO) << "Connection benchmark: invoked " << numClient << " clients";
+    IL_PRINT << "Connection benchmark: invoked " << numClient << " clients";
 
     // wait for clients
-    DLOG(INFO) << "Connection benchmark completed, 5s to collect results";
+    IL_PRINT << "Connection benchmark completed, 5s to collect results";
 
     std::this_thread::sleep_for(std::chrono::seconds(5));
 
@@ -54,7 +54,7 @@ void ILConnectionBenchmark::run(quint64 numClient) {
             total_ += num;
     }
 
-    DLOG(INFO) << "Connection benchmark result: " << total_;
+    IL_PRINT << "Connection benchmark result: " << total_;
 }
 
 ILConnectionBenchmark::~ILConnectionBenchmark() {

@@ -1,7 +1,7 @@
 #ifndef ILLUSION_IPP
 #define ILLUSION_IPP
 
-#include <glog/logging.h>
+#include "ilprint.hpp"
 #include <thread>
 
 namespace il {
@@ -30,7 +30,7 @@ inline void Illusion::removeBenchmark(ILBenchmarkPtr bench) const {
 }
 
 inline void Illusion::stop() {
-    DLOG(INFO) << "Stopping ...";
+    IL_PRINT << "Stopping ...";
 
     delete work_;
     service_.stop();

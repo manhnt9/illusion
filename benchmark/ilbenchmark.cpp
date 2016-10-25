@@ -30,23 +30,23 @@ void ILBenchmark::addOperation(ILOperationPtr op) {
 }
 
 void ILBenchmark::run() {
-    DLOG(INFO) << opList_.first()->request()->GetTypeName() << " benchmark started";
+    IL_PRINT << opList_.first()->request()->GetTypeName() << " benchmark started";
 
     timer_.expires_from_now(std::chrono::seconds(duration_));
     timer_.async_wait([this] (const std::error_code& e) {
         if (!e) {
             this->done_ = true;
-            DLOG(INFO) << opList_.first()->request()->GetTypeName() << " benchmark finished";
+            IL_PRINT << opList_.first()->request()->GetTypeName() << " benchmark finished";
             speed_ = totalOps_ / duration_;
             emit finished();
 
-            DLOG(INFO) << "Clients: " << opList_.size();
-            DLOG(INFO) << "Delay: " << delay_ << " ms";
-            DLOG(INFO) << "Total operations: " << totalOps_;
-            DLOG(INFO) << "Duration: " << duration_ << " s";
-            DLOG(INFO) << "Average speed: " << speed_ << " operations/s";
-            DLOG(INFO) << "Fastest response: " << fastestResponse_ << " ms";
-            DLOG(INFO) << "Slowest response: " << slowestResponse_ << " ms";
+            IL_PRINT << "Clients: " << opList_.size();
+            IL_PRINT << "Delay: " << delay_ << " ms";
+            IL_PRINT << "Total operations: " << totalOps_;
+            IL_PRINT << "Duration: " << duration_ << " s";
+            IL_PRINT << "Average speed: " << speed_ << " operations/s";
+            IL_PRINT << "Fastest response: " << fastestResponse_ << " ms";
+            IL_PRINT << "Slowest response: " << slowestResponse_ << " ms";
         }
     });
 

@@ -2,7 +2,6 @@
 #define ILTCPOPERATION_IPP
 
 #include "iloperation.hpp"
-#include <glog/logging.h>
 
 namespace il {
 
@@ -16,9 +15,9 @@ inline void ILTcpOperation::connect(const asio::ip::tcp::endpoint& endpoint) {
 
 inline void ILTcpOperation::onConnect(const std::error_code& e) {
     if (!e) {
-        DLOG(INFO) << "TCP connection opened";
+        IL_PRINT << "TCP connection opened";
     } else {
-        DLOG(ERROR) << "Connection error: " << e.message();
+        IL_PRINT << "Connection error: " << e.message();
     }
 }
 

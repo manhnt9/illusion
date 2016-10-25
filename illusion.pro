@@ -67,6 +67,7 @@ HEADERS             += illusion/illusion.hpp \
                         benchmark/ilbenchmark.ipp \
                         benchmark/ilbenchmark.hpp \
                         benchmark/ildelayedoperation.hpp \
-                        benchmark/ilconnectionbenchmark.hpp
+                        benchmark/ilconnectionbenchmark.hpp \
+                        illusion/ilprint.hpp
 
 DISTFILES           += message/message.proto
