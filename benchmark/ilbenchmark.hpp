@@ -50,6 +50,7 @@ private:
     quint64                 fastestResponse_;
     quint64                 slowestResponse_;
     quint64                 speed_;
+    quint64                 time_;
 
 private:
     OperationHook           hook_;
