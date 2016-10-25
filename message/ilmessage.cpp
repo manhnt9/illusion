@@ -12,6 +12,8 @@ void init() {
 }
 
 bool exists(const QString& name) {
+    Q_ASSERT(name.length());
+
     for(const auto& m : list) {
         if (m == name)
             return true;
@@ -20,11 +22,11 @@ bool exists(const QString& name) {
     return false;
 }
 
-ILMessage* create(const QString& name) {
+ILMessagePtr create(const QString& name) {
     Q_ASSERT(name.length());
 
     if (name == "SampleRequest")
-        return new SampleRequest();
+        return std::make_shared<SampleRequest>();
     else
         return nullptr;
 }

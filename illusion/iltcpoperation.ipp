@@ -16,9 +16,9 @@ inline void ILTcpOperation::connect(const asio::ip::tcp::endpoint& endpoint) {
 
 inline void ILTcpOperation::onConnect(const std::error_code& e) {
     if (!e) {
-        LOG(INFO) << "TCP connection opened";
+        DLOG(INFO) << "TCP connection opened";
     } else {
-        LOG(ERROR) << "Connection error: " << e.message();
+        DLOG(ERROR) << "Connection error: " << e.message();
     }
 }
 

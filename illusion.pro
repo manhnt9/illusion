@@ -24,19 +24,22 @@ CONFIG(private) {
     SOURCES         += vt/vtmessage.cpp \
                         vt/vthttpoperation.cpp \
                         vt/vtpostoperation.cpp \
-                        vt/vttcpoperation.cpp
+                        vt/vttcpoperation.cpp \
+                        vt/vtbenchmark.cpp
 
     HEADERS         += vt/vthttpoperation.hpp \
                         vt/vthttpoperation.ipp \
                         vt/vtpostoperation.hpp \
                         vt/vttcpoperation.hpp \
-                        vt/vttcpoperation.ipp
+                        vt/vttcpoperation.ipp \
+                        vt/vtbenchmark.hpp
+
 
     PROTOS          += vt/proto/comm.account.proto \
+                        vt/proto/comm.call.proto \
                         vt/proto/comm.chat.proto \
                         vt/proto/comm.message.proto \
                         vt/proto/comm.profile.proto \
-                        vt/proto/comm.call.proto \
                         vt/proto/comm.contact.proto \
                         vt/proto/comm.model.proto \
                         vt/proto/store.proto

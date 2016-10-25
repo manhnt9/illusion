@@ -20,7 +20,7 @@ typedef std::shared_ptr<ILMessage> ILMessagePtr;
 namespace message {
 
 void                        init();
-ILMessage*                  create(const QString& name);
+ILMessagePtr                create(const QString& name);
 bool                        exists(const QString& name);
 extern QStringList          list;
 

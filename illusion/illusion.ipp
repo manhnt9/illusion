@@ -30,7 +30,7 @@ inline void Illusion::removeBenchmark(ILBenchmarkPtr bench) const {
 }
 
 inline void Illusion::stop() {
-    LOG(INFO) << "Stopping ...";
+    DLOG(INFO) << "Stopping ...";
 
     delete work_;
     service_.stop();
