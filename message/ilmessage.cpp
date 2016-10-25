@@ -23,7 +23,7 @@ bool exists(const QString& name) {
 }
 
 ILMessagePtr create(const QString& name) {
-    Q_ASSERT(name.length());
+    Q_ASSERT(exists(name));
 
     if (name == "SampleRequest")
         return std::make_shared<SampleRequest>();

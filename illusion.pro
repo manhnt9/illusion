@@ -31,8 +31,7 @@ CONFIG(private) {
                         vt/vthttpoperation.ipp \
                         vt/vtpostoperation.hpp \
                         vt/vttcpoperation.hpp \
-                        vt/vttcpoperation.ipp \
-                        vt/vtbenchmark.hpp
+                        vt/vttcpoperation.ipp
 
 
     PROTOS          += vt/proto/comm.account.proto \

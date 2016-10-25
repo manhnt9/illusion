@@ -6,6 +6,9 @@
 #include <functional>
 #include <asio/steady_timer.hpp>
 
+class QString;
+class QStringList;
+
 namespace il {
 
 class ILOperation;
@@ -51,6 +54,17 @@ private:
 private:
     OperationHook           hook_;
 };
+
+class ILBenchmark;
+typedef std::shared_ptr<ILBenchmark> ILBenchmarkPtr;
+
+namespace benchmark {
+void                        init();
+il::ILBenchmarkPtr          create(const QString& name, int numClient, int duration, int delay);
+bool                        exists(const QString& name);
+void                        listBenchmarks();
+extern QStringList          list;
+}
 
 } // namespace il
 

@@ -41,20 +41,20 @@ void Illusion::init() {
 
     cmdLine_.process(*QApplication::instance());
 
-    if (!cmdLine_.value(hostOption).length()) {
-        IL_PRINT << "No host specified via the command-line";
-        return;
+    if (cmdLine_.value(hostOption).length() && cmdLine_.value(portOption).length()) {
+        endpoint_ = asio::ip::tcp::endpoint(asio::ip::address_v4::from_string(cmdLine_.value(hostOption).toStdString()),
+                                            cmdLine_.value(portOption).toUInt());
     }
-
-    if (!cmdLine_.value(portOption).length()){
-        IL_PRINT << "No port specified via the command-line";
-        return;
-    }
-
-    endpoint_ = asio::ip::tcp::endpoint(asio::ip::address_v4::from_string(cmdLine_.value(hostOption).toStdString()),
-                                        cmdLine_.value(portOption).toUInt());
 
     if (cmdLine_.isSet(connOption)) {
+        if (endpoint_.address().to_string().empty()) {
+            IL_PRINT << "No host specified via the command-line";
+            return;
+        } else if (!endpoint_.port()) {
+            IL_PRINT << "No port specified via the command-line";
+            return;
+        }
+
         int num = 60;
 
         if (cmdLine_.value(connNumOpion).length())
