@@ -8,6 +8,7 @@
 namespace il {
 
 typedef asio::ip::tcp::socket TcpSocket;
+typedef std::shared_ptr<TcpSocket> TcpSocketPtr;
 
 class ILTcpOperation : public ILOperation
 {
@@ -33,7 +34,7 @@ private:
     virtual void            read() = 0;
 
 protected:
-    TcpSocket*              socket_;
+    TcpSocketPtr            socket_;
 
     std::size_t             bytesSent_;
     std::size_t             bytesReceived_;

@@ -21,8 +21,7 @@ void ILTcpOperation::run() {
 
 ILTcpOperation::~ILTcpOperation()
 {
-    if (socket_)
-        delete socket_;
+
 }
 
 } // namespace il
