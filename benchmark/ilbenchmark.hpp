@@ -13,7 +13,7 @@ namespace il {
 
 class ILOperation;
 typedef std::shared_ptr<ILOperation> ILOperationPtr;
-typedef std::function<void(ILOperationPtr)> OperationHook;
+typedef std::function<void(const ILOperationPtr)> OperationHook;
 
 class ILBenchmark : public QObject
 {

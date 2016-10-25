@@ -1,6 +1,5 @@
 #include "illusion.hpp"
 #include "benchmark/ilconnectionbenchmark.hpp"
-#include "benchmark/ilbenchmark.hpp"
 #include "ilmanager.hpp"
 #include <QCommandLineParser>
 #include <QApplication>
@@ -11,7 +10,8 @@ Illusion* Illusion::instance_ = nullptr;
 
 Illusion::Illusion()
     :   QObject(nullptr),
-        work_(nullptr)
+        work_(nullptr),
+        currentBenchmark_(0)
 {
 
 }
@@ -75,9 +75,7 @@ void Illusion::init() {
 void Illusion::run() {
     IL_PRINT << "Running all benchmarks";
 
-    for (int i = 0; i < ILManager::instance()->benchmarkCount(); ++i) {
-        ILManager::instance()->getBenchmark(i)->run();
-    }
+    ILManager::instance()->getBenchmark(currentBenchmark_)->run();
 
     work_ = new asio::io_service::work(service_);
 

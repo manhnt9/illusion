@@ -2,6 +2,7 @@
 #define ILLUSION_IPP
 
 #include "ilprint.hpp"
+#include "benchmark/ilbenchmark.hpp"
 #include <thread>
 
 namespace il {
@@ -23,10 +24,17 @@ inline asio::ip::tcp::endpoint Illusion::getEndpoint() const {
 
 inline void Illusion::addBenchmark(ILBenchmarkPtr bench) const {
     ILManager::instance()->addBenchmark(bench);
+    connect(bench.get(), &ILBenchmark::finished, this, &Illusion::runNext);
 }
 
 inline void Illusion::removeBenchmark(ILBenchmarkPtr bench) const {
     ILManager::instance()->removeBenchmark(bench);
+}
+
+inline void Illusion::runNext() {
+    auto mgr = ILManager::instance();
+    if (++currentBenchmark_ < mgr->benchmarkCount())
+        mgr->getBenchmark(currentBenchmark_)->run();
 }
 
 inline void Illusion::stop() {

@@ -29,6 +29,9 @@ public:
     void                    run();
     void                    stop();
 
+private slots:
+    void                    runNext();
+
 private:
     static Illusion*        instance_;
 
@@ -37,6 +40,7 @@ private:
     asio::ip::tcp::endpoint endpoint_;
 
     QCommandLineParser      cmdLine_;
+    int                     currentBenchmark_;
 };
 
 } // namespace il
