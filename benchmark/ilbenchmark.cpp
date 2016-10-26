@@ -45,7 +45,7 @@ void ILBenchmark::run() {
             IL_PRINT << "Total operations: " << totalOps_;
             IL_PRINT << "Duration: " << duration_ << " s";
             IL_PRINT << "Average speed: " << speed_ << " operations/s";
-            IL_PRINT << "Average response time: " << time_ / totalOps_;
+            IL_PRINT << "Average response time: " << time_ / totalOps_ << " ms";
             IL_PRINT << "Fastest response: " << fastestResponse_ << " ms";
             IL_PRINT << "Slowest response: " << slowestResponse_ << " ms";
 

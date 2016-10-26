@@ -31,17 +31,16 @@ inline void Illusion::removeBenchmark(ILBenchmarkPtr bench) const {
     ILManager::instance()->removeBenchmark(bench);
 }
 
-inline void Illusion::runNext() {
-    auto mgr = ILManager::instance();
-    if (++currentBenchmark_ < mgr->benchmarkCount())
-        mgr->getBenchmark(currentBenchmark_)->run();
-}
-
 inline void Illusion::stop() {
     IL_PRINT << "Stopping ...";
 
     delete work_;
     service_.stop();
+}
+
+inline void Illusion::restart() {
+    stop();
+    run();
 }
 
 } // namespace il

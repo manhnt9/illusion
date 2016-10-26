@@ -51,7 +51,8 @@ SOURCES             += main.cpp \
                         illusion/ilmanager.cpp \
                         benchmark/ilbenchmark.cpp \
                         benchmark/ildelayedoperation.cpp \
-                        benchmark/ilconnectionbenchmark.cpp
+                        benchmark/ilconnectionbenchmark.cpp \
+                        illusion/ilhttpoperation.cpp
 
 HEADERS             += illusion/illusion.hpp \
                         illusion/illusion.ipp \
@@ -67,6 +68,8 @@ HEADERS             += illusion/illusion.hpp \
                         benchmark/ilbenchmark.hpp \
                         benchmark/ildelayedoperation.hpp \
                         benchmark/ilconnectionbenchmark.hpp \
-                        illusion/ilprint.hpp
+                        illusion/ilprint.hpp \
+                        illusion/ilhttpoperation.hpp \
+                        illusion/ilhttpoperation.ipp
 
 DISTFILES           += message/message.proto

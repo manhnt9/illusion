@@ -28,6 +28,7 @@ public:
 
     void                    run();
     void                    stop();
+    void                    restart();
 
 private slots:
     void                    runNext();

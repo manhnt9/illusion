@@ -1,8 +1,10 @@
 #include "illusion.hpp"
 #include "benchmark/ilconnectionbenchmark.hpp"
 #include "ilmanager.hpp"
+#include "ilhttpoperation.hpp"
 #include <QCommandLineParser>
 #include <QApplication>
+
 
 namespace il {
 
@@ -84,6 +86,17 @@ void Illusion::run() {
     });
 
     t.detach();
+}
+
+void Illusion::runNext() {
+    auto mgr = ILManager::instance();
+
+    if (++currentBenchmark_ < mgr->benchmarkCount())
+        mgr->getBenchmark(currentBenchmark_)->run();
+    else {
+        IL_PRINT << "Benchmarking finished";
+        stop();
+    }
 }
 
 Illusion::~Illusion() {

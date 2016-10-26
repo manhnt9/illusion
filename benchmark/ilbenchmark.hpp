@@ -26,6 +26,7 @@ public:
     void                    run();
 
     void                    setOperationHook(OperationHook&& hook);
+
     void                    addOperation(ILOperationPtr op);
 
     quint64                 totalOps() const;
