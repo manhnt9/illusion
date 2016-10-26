@@ -3,9 +3,11 @@
 
 namespace il {
 
+HttpManagerPtr ILHttpOperation::http_ = std::make_shared<HttpManager>();
+
 ILHttpOperation::ILHttpOperation(il::ILMessagePtr rq)
 {
-    connect(&http_, &QNetworkAccessManager::finished,
+    connect(http_.get(), &QNetworkAccessManager::finished,
             this, &ILHttpOperation::replyReceived);
 
     Q_ASSERT(rq);

@@ -9,6 +9,7 @@ class QNetworkReply;
 namespace il {
 
 typedef QNetworkAccessManager HttpManager;
+typedef std::shared_ptr<HttpManager> HttpManagerPtr;
 
 class ILHttpOperation : public il::ILOperation
 {
@@ -19,13 +20,14 @@ public:
                             ~ILHttpOperation();
 
     virtual void            run() = 0;
+    static void             reset();
 
 public slots:
     void                    replyReceived(QNetworkReply*reply);
 
 protected:
     virtual void            parseReply(QNetworkReply*reply) = 0;
-    HttpManager             http_;
+    static HttpManagerPtr   http_;
 };
 
 } // namespace il

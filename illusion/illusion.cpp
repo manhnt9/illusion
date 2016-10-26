@@ -89,6 +89,8 @@ void Illusion::run() {
 }
 
 void Illusion::runNext() {
+    ILHttpOperation::reset();
+
     auto mgr = ILManager::instance();
 
     if (++currentBenchmark_ < mgr->benchmarkCount())
