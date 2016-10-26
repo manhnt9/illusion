@@ -4,6 +4,9 @@
 #include <memory>
 #include <QObject>
 #include <QNetworkAccessManager>
+#include <QVector>
+
+#define NUM_HTTP_CLIENT 500
 
 class QNetworkRequest;
 class QNetworkReply;
@@ -31,7 +34,8 @@ signals:
 
 private:
     static ILHttpManager* instance_;
-    HttpPtr             http_;
+    QVector<HttpPtr>    http_;
+    int                 count_;
 };
 
 } // namespace il
