@@ -2,14 +2,12 @@
 #define ILHTTPOPERATION_H
 
 #include "iloperation.hpp"
-#include <QNetworkAccessManager>
 
 class QNetworkReply;
 
 namespace il {
 
-typedef QNetworkAccessManager HttpManager;
-typedef std::shared_ptr<HttpManager> HttpManagerPtr;
+typedef QNetworkReply ILHttpReply;
 
 class ILHttpOperation : public il::ILOperation
 {
@@ -20,18 +18,14 @@ public:
                             ~ILHttpOperation();
 
     virtual void            run() = 0;
-    static void             reset();
 
-public slots:
-    void                    replyReceived(QNetworkReply*reply);
+private slots:
+    virtual void            parseReply(QNetworkReply* reply) = 0;
 
 protected:
-    virtual void            parseReply(QNetworkReply*reply) = 0;
-    static HttpManagerPtr   http_;
+    ILHttpReply*            httpReply_;
 };
 
 } // namespace il
-
-#include "ilhttpoperation.ipp"
 
 #endif // ILHTTPOPERATION_H

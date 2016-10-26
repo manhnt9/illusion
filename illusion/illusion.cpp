@@ -1,7 +1,7 @@
 #include "illusion.hpp"
 #include "benchmark/ilconnectionbenchmark.hpp"
 #include "ilmanager.hpp"
-#include "ilhttpoperation.hpp"
+#include "ilhttpmanager.hpp"
 #include <QCommandLineParser>
 #include <QApplication>
 
@@ -89,7 +89,7 @@ void Illusion::run() {
 }
 
 void Illusion::runNext() {
-    ILHttpOperation::reset();
+    ILHttpManager::instance()->reset();
 
     auto mgr = ILManager::instance();
 
