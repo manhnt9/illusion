@@ -55,7 +55,6 @@ void ILBenchmark::run() {
 
     for (const auto& op : opList_) {
         op->run();
-        ++totalOps_;
     }
 }
 

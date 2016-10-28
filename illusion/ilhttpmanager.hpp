@@ -6,7 +6,7 @@
 #include <QNetworkAccessManager>
 #include <QVector>
 
-#define NUM_HTTP_CLIENT 5
+#define NUM_HTTP_CLIENT 500
 
 class QNetworkRequest;
 class QNetworkReply;
