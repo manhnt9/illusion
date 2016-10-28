@@ -28,6 +28,8 @@ public:
     void                    setOperationHook(OperationHook&& hook);
 
     void                    addOperation(ILOperationPtr op);
+    ILOperationPtr          getOperation(int index) const;
+    int                     operationCount() const;
 
     quint64                 totalOps() const;
     quint64                 fastestResponse() const;
@@ -57,7 +59,6 @@ private:
     OperationHook           hook_;
 };
 
-class ILBenchmark;
 typedef std::shared_ptr<ILBenchmark> ILBenchmarkPtr;
 
 namespace benchmark {

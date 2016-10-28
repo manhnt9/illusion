@@ -25,14 +25,15 @@ CONFIG(private) {
                         vt/vthttpoperation.cpp \
                         vt/vtpostoperation.cpp \
                         vt/vttcpoperation.cpp \
-                        vt/vtbenchmark.cpp
+                        vt/vtbenchmark.cpp \
+                        vt/vtbenchmarkcreate.cpp
 
     HEADERS         += vt/vthttpoperation.hpp \
                         vt/vthttpoperation.ipp \
                         vt/vtpostoperation.hpp \
                         vt/vttcpoperation.hpp \
-                        vt/vttcpoperation.ipp
-
+                        vt/vttcpoperation.ipp \
+                        vt/vtserver.hpp
 
     PROTOS          += vt/proto/comm.account.proto \
                         vt/proto/comm.call.proto \

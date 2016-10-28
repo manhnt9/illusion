@@ -23,6 +23,14 @@ inline quint64 ILBenchmark::speed() const {
     return speed_;
 }
 
+inline ILOperationPtr ILBenchmark::getOperation(int index) const {
+    return opList_.at(index);
+}
+
+inline int ILBenchmark::operationCount() const {
+    return opList_.size();
+}
+
 }
 
 #endif // ILBENCHMARK_IPP
