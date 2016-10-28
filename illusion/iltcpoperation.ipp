@@ -5,14 +5,6 @@
 
 namespace il {
 
-inline void ILTcpOperation::connect(const asio::ip::tcp::endpoint& endpoint) {
-    socket_ = std::make_shared<TcpSocket>(Illusion::instance()->getService());
-
-    start();
-    socket_->async_connect(endpoint, std::bind(&ILTcpOperation::onConnect,
-                                               this, std::placeholders::_1));
-}
-
 inline void ILTcpOperation::onConnect(const std::error_code& e) {
     if (!e) {
         IL_PRINT << "TCP connection opened";
