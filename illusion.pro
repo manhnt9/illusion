@@ -25,8 +25,7 @@ CONFIG(private) {
                         vt/vthttpoperation.cpp \
                         vt/vtpostoperation.cpp \
                         vt/vttcpoperation.cpp \
-                        vt/vtbenchmark.cpp \
-                        vt/vtbenchmarkcreate.cpp
+                        vt/vtbenchmark.cpp
 
     HEADERS         += vt/vthttpoperation.hpp \
                         vt/vthttpoperation.ipp \

@@ -31,6 +31,8 @@ public:
     ILMessagePtr            request() const;
     ILMessagePtr            reply() const;
 
+    void                    setRequest(ILMessagePtr m);
+
 signals:
     void                    finished(quint32 id);
 

@@ -49,6 +49,11 @@ inline ILMessagePtr ILOperation::reply() const {
     return reply_;
 }
 
+inline void ILOperation::setRequest(ILMessagePtr m) {
+    request_ = m;
+    reply_ = nullptr;
+}
+
 } // namespace il
 
 #endif // ILOPERATION_IPP
