@@ -22,12 +22,7 @@ ILOperation::~ILOperation()
 }
 
 ILOperation& ILOperation::operator=(const ILOperation& other) {
-    id_ = other.id();
-    state_ = other.state();
-    startTime_ = other.startTime();
-    finishTime_ = other.finishTime();
     request_ = other.request();
-    reply_ = other.reply();
     return *this;
 }
 

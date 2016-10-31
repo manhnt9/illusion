@@ -28,8 +28,6 @@ void ILTcpOperation::connect(const asio::ip::tcp::endpoint& endpoint) {
 ILTcpOperation& ILTcpOperation::operator=(const ILTcpOperation& other) {
     ILOperation::operator=(other);
     socket_ = other.socket();
-    bytesSent_ = other.bytesSent();
-    bytesReceived_ = other.bytesReceived();
     return *this;
 }
 
