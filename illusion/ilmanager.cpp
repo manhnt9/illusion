@@ -1,4 +1,5 @@
 #include "ilmanager.hpp"
+#include "benchmark/ilbenchmark.hpp"
 
 namespace il {
 
@@ -9,6 +10,14 @@ ILManager::ILManager()
         opId_(0)
 {
 
+}
+
+ILBenchmarkPtr ILManager::getBenchmark(const QString &name) const {
+    for (const auto& b : benchList_) {
+        if (b->name() == name)
+            return b;
+    }
+    return nullptr;
 }
 
 } // namespace il

@@ -4,13 +4,15 @@
 #include "ildelayedoperation.hpp"
 #include "illusion/illusion.hpp"
 #include "illusion/ilmanager.hpp"
+#include "ilmessage.hpp"
 #include <google/protobuf/message.h>
 #include <chrono>
 
 namespace il {
 
-ILBenchmark::ILBenchmark(quint64 duration, quint64 delayMsec)
+ILBenchmark::ILBenchmark(const QString &name, quint64 duration, quint64 delayMsec)
     :   QObject(nullptr),
+        name_(name),
         duration_(duration),
         delay_(delayMsec),
         timer_(Illusion::instance()->getService()),
@@ -21,7 +23,7 @@ ILBenchmark::ILBenchmark(quint64 duration, quint64 delayMsec)
         speed_(0),
         time_(0)
 {
-
+    Q_ASSERT(il::message::exists(name));
 }
 
 void ILBenchmark::addOperation(ILOperationPtr op) {

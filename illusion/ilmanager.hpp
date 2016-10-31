@@ -31,6 +31,7 @@ public:
     void                    addBenchmark(ILBenchmarkPtr bench);
     void                    removeBenchmark(ILBenchmarkPtr bench);
     ILBenchmarkPtr          getBenchmark(int index) const;
+    ILBenchmarkPtr          getBenchmark(const QString& name) const;
     int                     benchmarkCount() const;
 
 private:

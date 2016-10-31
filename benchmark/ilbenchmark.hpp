@@ -20,8 +20,10 @@ class ILBenchmark : public QObject
     Q_OBJECT
 
 public:
-    explicit                ILBenchmark(quint64 duration, quint64 delayMsec);
+    explicit                ILBenchmark(const QString& name, quint64 duration, quint64 delayMsec);
                             ~ILBenchmark();
+
+    QString                 name() const;
 
     void                    run();
 
@@ -43,6 +45,7 @@ private slots:
     void                    runNext(quint64 id);
 
 private:
+    const QString           name_;
     QVector<ILOperationPtr> opList_;
     quint64                 duration_;
     quint64                 delay_;

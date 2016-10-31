@@ -3,6 +3,10 @@
 
 namespace il {
 
+inline QString ILBenchmark::name() const {
+    return name_;
+}
+
 inline void ILBenchmark::setOperationHook(OperationHook&& hook) {
     hook_ = std::move(hook);
 }
