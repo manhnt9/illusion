@@ -20,6 +20,8 @@ public:
 
     virtual void            run() = 0;
 
+    ILOperation&            operator=(const ILOperation& other);
+
     void                    setId(quint64 id);
 
     quint64                 id() const;

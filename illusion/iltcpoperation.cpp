@@ -28,6 +28,14 @@ void ILTcpOperation::connect(const asio::ip::tcp::endpoint& endpoint) {
                                                this, std::placeholders::_1));
 }
 
+ILTcpOperation& ILTcpOperation::operator=(const ILTcpOperation& other) {
+    ILOperation::operator=(other);
+    socket_ = other.socket();
+    bytesSent_ = other.bytesSent();
+    bytesReceived_ = other.bytesReceived();
+    return *this;
+}
+
 ILTcpOperation::~ILTcpOperation()
 {
 

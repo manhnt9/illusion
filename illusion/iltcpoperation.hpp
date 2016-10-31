@@ -8,7 +8,7 @@
 namespace il {
 
 typedef asio::ip::tcp::socket ILTcpSocket;
-typedef std::unique_ptr<ILTcpSocket> ILTcpSocketPtr;
+typedef std::shared_ptr<ILTcpSocket> ILTcpSocketPtr;
 
 class ILTcpOperation : public ILOperation
 {
@@ -17,11 +17,12 @@ class ILTcpOperation : public ILOperation
 public:
     explicit                ILTcpOperation(ILMessagePtr rq);
                             ILTcpOperation(const ILTcpOperation&) = delete;
-    ILTcpOperation&         operator=(const ILTcpOperation&) = delete;
+    ILTcpOperation&         operator=(const ILTcpOperation&);
                             ~ILTcpOperation();
 
     void                    connect(const asio::ip::tcp::endpoint& endpoint);
 
+    ILTcpSocketPtr          socket() const;
     std::size_t             bytesSent() const;
     std::size_t             bytesReceived() const;
 
