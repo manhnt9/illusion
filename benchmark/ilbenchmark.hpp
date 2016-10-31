@@ -12,8 +12,11 @@ class QStringList;
 namespace il {
 
 class ILOperation;
+class ILBenchmark;
 typedef std::shared_ptr<ILOperation> ILOperationPtr;
+typedef std::shared_ptr<ILBenchmark> ILBenchmarkPtr;
 typedef std::function<void(const ILOperationPtr)> OperationHook;
+typedef std::function<void()> Initializer;
 
 class ILBenchmark : public QObject
 {
@@ -27,6 +30,7 @@ public:
 
     void                    run();
 
+    void                    setInitializer(Initializer&& init);
     void                    setOperationHook(OperationHook&& hook);
 
     void                    addOperation(ILOperationPtr op);
@@ -59,10 +63,9 @@ private:
     quint64                 time_;
 
 private:
+    Initializer             init_;
     OperationHook           hook_;
 };
-
-typedef std::shared_ptr<ILBenchmark> ILBenchmarkPtr;
 
 namespace benchmark {
 void                        init();

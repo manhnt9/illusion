@@ -33,6 +33,9 @@ void ILBenchmark::addOperation(ILOperationPtr op) {
 }
 
 void ILBenchmark::run() {
+    Q_ASSERT(init_);
+    init_();
+
     IL_PRINT << opList_.first()->request()->GetTypeName() << " benchmark started for " << duration_ << " seconds";
 
     timer_.expires_from_now(std::chrono::seconds(duration_));
@@ -40,6 +43,13 @@ void ILBenchmark::run() {
         if (!e) {
             this->done_ = true;
             IL_PRINT << opList_.first()->request()->GetTypeName() << " benchmark finished";
+
+            if (!totalOps()) {
+                IL_PRINT << "Benchmark error";
+                emit finished();
+                return;
+            }
+
             speed_ = totalOps_ / duration_;
 
             IL_PRINT << "Clients: " << opList_.size();
