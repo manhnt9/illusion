@@ -17,8 +17,9 @@ class ILTcpOperation : public ILOperation
 public:
     explicit                ILTcpOperation(ILMessagePtr rq);
                             ILTcpOperation(const ILTcpOperation&) = delete;
-    ILTcpOperation&         operator=(const ILTcpOperation&);
                             ~ILTcpOperation();
+
+    ILTcpOperation&         operator=(const ILTcpOperation&);
 
     void                    connect(const asio::ip::tcp::endpoint& endpoint);
 

@@ -9,9 +9,6 @@ ILTcpOperation::ILTcpOperation(ILMessagePtr rq)
         bytesSent_(0),
         bytesReceived_(0)
 {
-    Q_ASSERT(rq);
-    Q_ASSERT(rq->IsInitialized());
-
     request_ = rq;
 }
 
