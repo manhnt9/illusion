@@ -7,9 +7,9 @@ namespace il {
 
 inline void ILTcpOperation::onConnect(const std::error_code& e) {
     if (!e) {
-        IL_PRINT << "TCP connection opened";
+        write();
     } else {
-        IL_PRINT << "Connection error: " << e.message();
+//        IL_PRINT << "Connection error: " << e.message();
     }
 }
 
