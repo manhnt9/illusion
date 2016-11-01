@@ -83,13 +83,13 @@ void ILBenchmark::runNext(quint64 id) {
     o->run(delay_);
 
     if (fastestResponse_) {
-        if (op->duration() < fastestResponse_)
+        if (op->duration() && op->duration() < fastestResponse_)
             fastestResponse_ = op->duration();
     } else
         fastestResponse_ = op->duration();
 
     if (slowestResponse_) {
-        if (op->duration() > slowestResponse_)
+        if (op->duration() && op->duration() > slowestResponse_)
             slowestResponse_ = op->duration();
     } else
         slowestResponse_ = op->duration();
