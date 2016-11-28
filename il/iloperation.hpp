@@ -21,11 +21,11 @@ public:
 
   void setId(quint64 id);
 
-  quint64 id() const;
+  auto id() const;
   State state() const;
-  quint64 startTime() const;
-  quint64 finishTime() const;
-  quint64 duration() const;
+  auto startTime() const;
+  auto finishTime() const;
+  auto duration() const;
 
 signals:
   void finished(quint32 id);

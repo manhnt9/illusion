@@ -14,11 +14,11 @@ inline void ILTcpOperation::onConnect(const std::error_code& e) {
   }
 }
 
-inline std::size_t ILTcpOperation::bytesSent() const {
+inline auto ILTcpOperation::bytesSent() const {
   return bytesSent_;
 }
 
-inline std::size_t ILTcpOperation::bytesReceived() const {
+inline auto ILTcpOperation::bytesReceived() const {
   return bytesReceived_;
 }
 

@@ -20,7 +20,7 @@ inline void ILOperation::setId(quint64 id) {
   id_ = id;
 }
 
-inline quint64 ILOperation::id() const {
+inline auto ILOperation::id() const {
   return id_;
 }
 
@@ -28,15 +28,15 @@ inline State ILOperation::state() const {
   return state_;
 }
 
-inline quint64 ILOperation::startTime() const {
+inline auto ILOperation::startTime() const {
   return startTime_;
 }
 
-inline quint64 ILOperation::finishTime() const {
+inline auto ILOperation::finishTime() const {
   return finishTime_;
 }
 
-inline quint64 ILOperation::duration() const {
+inline auto ILOperation::duration() const {
   return finishTime_ - startTime_;
 }
 

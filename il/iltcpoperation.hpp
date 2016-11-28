@@ -18,8 +18,8 @@ public:
   
   void connect(const asio::ip::tcp::endpoint& endpoint);
 
-  std::size_t bytesSent() const;
-  std::size_t bytesReceived() const;
+  auto bytesSent() const;
+  auto bytesReceived() const;
 
 private:
   virtual void onConnect(const std::error_code& e);
