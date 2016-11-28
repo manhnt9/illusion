@@ -22,7 +22,7 @@ public:
   void setId(quint64 id);
 
   auto id() const;
-  State state() const;
+  auto state() const;
   auto startTime() const;
   auto finishTime() const;
   auto duration() const;
@@ -35,7 +35,7 @@ protected:
   void finish();
 
   std::uint64_t id_;
-  State state_;
+  ILState state_;
   std::uint64_t startTime_;
   std::uint64_t finishTime_;
 };

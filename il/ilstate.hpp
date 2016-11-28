@@ -3,12 +3,12 @@
 
 namespace il {
 
-enum State {
-    CREATED,
-    RUNNING,
-    TIMEOUT,
-    FAILED,
-    FINISHED
+enum class ILState {
+  CREATED,
+  RUNNING,
+  TIMEOUT,
+  FAILED,
+  FINISHED
 };
 
 } // namespace il
