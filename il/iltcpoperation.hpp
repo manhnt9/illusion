@@ -10,33 +10,30 @@ namespace il {
 typedef asio::ip::tcp::socket ILTcpSocket;
 typedef std::shared_ptr<ILTcpSocket> ILTcpSocketPtr;
 
-class ILTcpOperation : public ILOperation
-{
-    Q_OBJECT
+class ILTcpOperation : public ILOperation {
+  Q_OBJECT
 
 public:
-    explicit                ILTcpOperation();
+  explicit ILTcpOperation();
                             ~ILTcpOperation();
+  
+  void connect(const asio::ip::tcp::endpoint& endpoint);
 
-    ILTcpOperation&         operator=(const ILTcpOperation&);
-
-    void                    connect(const asio::ip::tcp::endpoint& endpoint);
-
-    ILTcpSocketPtr          socket() const;
-    std::size_t             bytesSent() const;
-    std::size_t             bytesReceived() const;
+  ILTcpSocketPtr socket() const;
+  std::size_t bytesSent() const;
+  std::size_t bytesReceived() const;
 
 private:
-    virtual void            onConnect(const std::error_code& e);
+  virtual void onConnect(const std::error_code& e);
 
-    virtual void            write() = 0;
-    virtual void            read() = 0;
+  virtual void write() = 0;
+  virtual void read() = 0;
 
 protected:
-    ILTcpSocketPtr          socket_;
+  ILTcpSocketPtr socket_;
 
-    std::size_t             bytesSent_;
-    std::size_t             bytesReceived_;
+  std::size_t bytesSent_;
+  std::size_t bytesReceived_;
 };
 
 } // namespace il

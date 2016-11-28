@@ -7,8 +7,8 @@ namespace service {
 ILManager* ILManager::instance_ = nullptr;
 
 ILManager::ILManager()
-    :   QObject(nullptr),
-        opId_(0)
+  : QObject(nullptr),
+    opId_(0)
 {
 
 }

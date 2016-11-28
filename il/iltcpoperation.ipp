@@ -7,23 +7,23 @@
 namespace il {
 
 inline void ILTcpOperation::onConnect(const std::error_code& e) {
-    if (!e) {
-        write();
-    } else {
-        IL_PRINT << "Connection error: " << e.message();
-    }
+  if (!e) {
+      write();
+  } else {
+      IL_PRINT << "Connection error: " << e.message();
+  }
 }
 
 inline std::size_t ILTcpOperation::bytesSent() const {
-    return bytesSent_;
+  return bytesSent_;
 }
 
 inline std::size_t ILTcpOperation::bytesReceived() const {
-    return bytesReceived_;
+  return bytesReceived_;
 }
 
 inline ILTcpSocketPtr ILTcpOperation::socket() const {
-    return socket_;
+  return socket_;
 }
 
 } // namespace il
