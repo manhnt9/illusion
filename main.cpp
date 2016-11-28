@@ -2,6 +2,7 @@
 #include <iostream>
 
 int main() {
-    il::service::ILManager t;
+    IL_GET_SERVICE(ILCORE);
+    IL_GET_SERVICE(ILMANAGER);
     return 0;
 }

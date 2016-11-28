@@ -9,6 +9,8 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_PREFIX_PATH "/home/manh/Qt5.7.0/5.7/gcc_64")
 find_package(Qt5Core)
 
+include_directories(./)
+
 #add_subdirectory(illusion)
 add_subdirectory(service)
 #add_subdirectory(connect)
