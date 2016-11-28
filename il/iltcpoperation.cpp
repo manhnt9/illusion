@@ -1,20 +1,20 @@
 #include "iltcpoperation.hpp"
-#include <google/protobuf/message.h>
+#include <service/ilservice.hpp>
 
 namespace il {
 
-ILTcpOperation::ILTcpOperation(ILMessagePtr rq)
+ILTcpOperation::ILTcpOperation()
     :   ILOperation(),
         socket_(nullptr),
         bytesSent_(0),
         bytesReceived_(0)
 {
-    request_ = rq;
+
 }
 
 void ILTcpOperation::connect(const asio::ip::tcp::endpoint& endpoint) {
     if (!socket_)
-        socket_ = ILTcpSocketPtr(new ILTcpSocket(Illusion::instance()->getService()));
+        socket_ = ILTcpSocketPtr(new ILTcpSocket(IL_GET_SERVICE(ILCORE)->getService()));
 
     start();
 
@@ -23,12 +23,6 @@ void ILTcpOperation::connect(const asio::ip::tcp::endpoint& endpoint) {
     else
         socket_->async_connect(endpoint, std::bind(&ILTcpOperation::onConnect,
                                                this, std::placeholders::_1));
-}
-
-ILTcpOperation& ILTcpOperation::operator=(const ILTcpOperation& other) {
-    ILOperation::operator=(other);
-    socket_ = other.socket();
-    return *this;
 }
 
 ILTcpOperation::~ILTcpOperation()

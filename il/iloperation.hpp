@@ -1,9 +1,9 @@
-#ifndef ILOPERATION_H
-#define ILOPERATION_H
+#ifndef ILOPERATION_HPP
+#define ILOPERATION_HPP
 
 #include "ilstate.hpp"
-#include "ilmessage.hpp"
 #include <QObject>
+#include <memory>
 
 namespace il {
 
@@ -20,8 +20,6 @@ public:
 
     virtual void            run() = 0;
 
-    ILOperation&            operator=(const ILOperation& other);
-
     void                    setId(quint64 id);
 
     quint64                 id() const;
@@ -29,11 +27,6 @@ public:
     quint64                 startTime() const;
     quint64                 finishTime() const;
     quint64                 duration() const;
-
-    ILMessagePtr            request() const;
-    ILMessagePtr            reply() const;
-
-    void                    setRequest(ILMessagePtr m);
 
 signals:
     void                    finished(quint32 id);
@@ -46,13 +39,10 @@ protected:
     State                   state_;
     quint64                 startTime_;
     quint64                 finishTime_;
-
-    ILMessagePtr            request_;
-    ILMessagePtr            reply_;
 };
 
 } // namespace il
 
 #include "iloperation.ipp"
 
-#endif // ILOPERATION_H
+#endif // ILOPERATION_HPP

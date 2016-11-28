@@ -1,7 +1,6 @@
 #ifndef ILOPERATION_IPP
 #define ILOPERATION_IPP
 
-#include "illusion.hpp"
 #include <QDateTime>
 
 namespace il {
@@ -39,19 +38,6 @@ inline quint64 ILOperation::finishTime() const {
 
 inline quint64 ILOperation::duration() const {
     return finishTime_ - startTime_;
-}
-
-inline ILMessagePtr ILOperation::request() const {
-    return request_;
-}
-
-inline ILMessagePtr ILOperation::reply() const {
-    return reply_;
-}
-
-inline void ILOperation::setRequest(ILMessagePtr m) {
-    request_ = m;
-    reply_ = nullptr;
 }
 
 } // namespace il

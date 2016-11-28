@@ -11,7 +11,7 @@ find_package(Qt5Core)
 
 include_directories(./)
 
-#add_subdirectory(illusion)
+add_subdirectory(il)
 add_subdirectory(service)
 #add_subdirectory(connect)
 #add_subdirectory(message)
@@ -19,4 +19,4 @@ add_subdirectory(service)
 add_custom_target(files SOURCES README.md)
 
 add_executable(illusion main.cpp)
-target_link_libraries(illusion Qt5::Core ilservice)
+target_link_libraries(illusion Qt5::Core ilservice il)

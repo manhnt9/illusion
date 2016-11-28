@@ -1,9 +1,9 @@
-#ifndef ILTCPOPERATION_H
-#define ILTCPOPERATION_H
+#ifndef ILTCPOPERATION_HPP
+#define ILTCPOPERATION_HPP
 
 #include "iloperation.hpp"
-#include "ilmessage.hpp"
 #include <asio.hpp>
+#include <memory>
 
 namespace il {
 
@@ -15,8 +15,7 @@ class ILTcpOperation : public ILOperation
     Q_OBJECT
 
 public:
-    explicit                ILTcpOperation(ILMessagePtr rq);
-                            ILTcpOperation(const ILTcpOperation&) = delete;
+    explicit                ILTcpOperation();
                             ~ILTcpOperation();
 
     ILTcpOperation&         operator=(const ILTcpOperation&);
@@ -44,4 +43,4 @@ protected:
 
 #include "iltcpoperation.ipp"
 
-#endif // ILTCPOPERATION_H
+#endif // ILTCPOPERATION_HPP
