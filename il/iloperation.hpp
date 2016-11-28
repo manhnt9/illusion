@@ -34,10 +34,10 @@ protected:
   void start();
   void finish();
 
-  quint64 id_;
+  std::uint64_t id_;
   State state_;
-  quint64 startTime_;
-  quint64 finishTime_;
+  std::uint64_t startTime_;
+  std::uint64_t finishTime_;
 };
 
 } // namespace il
