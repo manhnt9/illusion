@@ -5,6 +5,7 @@ https://github.com/zer0-x/illusion
 
 Illusion is a framework for creating, running, examine server benchmarks
 ## Dependencies
+- A C++14 compiler
 - Standalone asio C++ library for networking
 
 ## Roadmap
