@@ -70,7 +70,7 @@ void Illusion::init() {
         ILConnectionBenchmark bench(endpoint_.address().to_string().c_str(), endpoint_.port());
         bench.run(num);
     } else if (cmdLine_.isSet(listBenchOption)) {
-        il::benchmark::listBenchmarks();
+//        il::benchmark::listBenchmarks();
     }
 }
 
