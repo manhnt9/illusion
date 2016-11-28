@@ -43,3 +43,4 @@ inline auto ILOperation::duration() const {
 } // namespace il
 
 #endif // ILOPERATION_IPP
+

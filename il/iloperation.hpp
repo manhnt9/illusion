@@ -45,3 +45,4 @@ protected:
 #include "iloperation.ipp"
 
 #endif // ILOPERATION_HPP
+

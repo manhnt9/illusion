@@ -20,3 +20,4 @@ add_custom_target(files SOURCES README.md)
 
 add_executable(illusion main.cpp)
 target_link_libraries(illusion Qt5::Core ilservice il)
+

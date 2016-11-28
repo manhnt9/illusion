@@ -25,3 +25,4 @@ inline auto ILTcpOperation::bytesReceived() const {
 } // namespace il
 
 #endif // ILTCPOPERATION_IPP
+

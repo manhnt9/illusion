@@ -19,3 +19,4 @@ inline asio::io_service& ILCore::getService() {
 } // namespace il
 
 #endif // ILCORE_IPP
+

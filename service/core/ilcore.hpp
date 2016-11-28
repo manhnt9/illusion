@@ -28,3 +28,4 @@ private:
 #include "ilcore.ipp"
 
 #endif // ILCORE_HPP
+
