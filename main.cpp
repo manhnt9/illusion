@@ -1,27 +1,7 @@
-#include "illusion/illusion.hpp"
-#include <QApplication>
-#include <QMainWindow>
-#include <QDebug>
-#include <google/protobuf/message.h>
-#include "benchmark/ilconnectionbenchmark.hpp"
-#include <QCommandLineParser>
+#include "service/ilservice.hpp"
+#include <iostream>
 
-int main(int argc, char* argv[])
-{
-    GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-    QApplication app(argc, argv);
-    QApplication::setApplicationName("illusion");
-    QApplication::setApplicationVersion("1.0");
-
-    il::Illusion::instance()->init();
-
-//    QMainWindow w;
-//    w.show();
-
-//    il::ILConnectionBenchmark bench("127.0.0.1", 8088);
-//    bench.run(60);
-
-//    il::Illusion::instance()->run();
-    return app.exec();
+int main() {
+    il::service::ILManager t;
+    return 0;
 }

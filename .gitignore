@@ -3,3 +3,4 @@ illusion.pro.user
 *pb.cc
 connect/pid/*
 connect/ilconnect
+CMakeLists.txt.user

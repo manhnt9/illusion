@@ -2,6 +2,7 @@
 #define ILMANAGER_IPP
 
 namespace il {
+namespace service {
 
 inline ILManager* ILManager::instance() {
     if (!instance_)
@@ -39,6 +40,7 @@ inline int ILManager::benchmarkCount() const {
     return benchList_.size();
 }
 
+} // namespace service 
 } // namespace il
 
 #endif // ILMANAGER_IPP

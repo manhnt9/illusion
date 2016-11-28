@@ -1,5 +1,5 @@
-#ifndef ILMANAGER_H
-#define ILMANAGER_H
+#ifndef ILMANAGER_HPP
+#define ILMANAGER_HPP
 
 #include <QObject>
 #include <QHash>
@@ -7,6 +7,7 @@
 #include <memory>
 
 namespace il {
+namespace service {
 
 class ILOperation;
 class ILBenchmark;
@@ -20,7 +21,8 @@ class ILManager : public QObject
     Q_OBJECT
 
 public:
-    explicit                ILManager();
+                            ILManager();
+    virtual                 ~ILManager();
 
     static ILManager*       instance();
 
@@ -41,8 +43,9 @@ private:
     BenchList               benchList_;
 };
 
+} // namespace service
 } // namespace il
 
 #include "ilmanager.ipp"
 
-#endif // ILMANAGER_H
+#endif // ILMANAGER_HPP
