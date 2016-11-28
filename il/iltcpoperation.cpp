@@ -1,5 +1,6 @@
 #include "iltcpoperation.hpp"
 #include <service/ilservice.hpp>
+#include <memory>
 
 namespace il {
 
@@ -14,7 +15,7 @@ ILTcpOperation::ILTcpOperation()
 
 void ILTcpOperation::connect(const asio::ip::tcp::endpoint& endpoint) {
   if (!socket_)
-    socket_ = ILTcpSocketPtr(new ILTcpSocket(IL_GET_SERVICE(ILCORE)->getService()));
+    socket_ = std::make_unique<ILTcpSocket>(IL_GET_SERVICE(ILCORE)->getService());
 
   start();
 

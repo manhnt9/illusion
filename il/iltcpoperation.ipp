@@ -22,10 +22,6 @@ inline std::size_t ILTcpOperation::bytesReceived() const {
   return bytesReceived_;
 }
 
-inline ILTcpSocketPtr ILTcpOperation::socket() const {
-  return socket_;
-}
-
 } // namespace il
 
 #endif // ILTCPOPERATION_IPP

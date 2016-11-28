@@ -8,18 +8,16 @@
 namespace il {
 
 typedef asio::ip::tcp::socket ILTcpSocket;
-typedef std::shared_ptr<ILTcpSocket> ILTcpSocketPtr;
 
 class ILTcpOperation : public ILOperation {
   Q_OBJECT
 
 public:
   explicit ILTcpOperation();
-                            ~ILTcpOperation();
+  ~ILTcpOperation();
   
   void connect(const asio::ip::tcp::endpoint& endpoint);
 
-  ILTcpSocketPtr socket() const;
   std::size_t bytesSent() const;
   std::size_t bytesReceived() const;
 
@@ -30,7 +28,7 @@ private:
   virtual void read() = 0;
 
 protected:
-  ILTcpSocketPtr socket_;
+  std::unique_ptr<ILTcpSocket> socket_;
 
   std::size_t bytesSent_;
   std::size_t bytesReceived_;
