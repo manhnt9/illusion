@@ -5,14 +5,14 @@ namespace il {
 namespace service {
 
 inline ILCore* ILCore::instance() {
-    if (!instance_)
-        instance_ = new ILCore();
+  if (!instance_)
+    instance_ = new ILCore();
 
-    return instance_;
+  return instance_;
 }
 
 inline asio::io_service& ILCore::getService() {
-    return service_;
+  return service_;
 }
 
 } // namespace service 

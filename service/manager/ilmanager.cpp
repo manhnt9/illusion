@@ -18,7 +18,7 @@ ILBenchmarkPtr ILManager::getBenchmark(const QString &name) const {
 //        if (b->name() == name)
 //            return b;
 //    }
-    return nullptr;
+  return nullptr;
 }
 
 ILManager::~ILManager() {

@@ -7,21 +7,19 @@
 namespace il {
 namespace service {
 
-class ILCore : public QObject
-{
-    Q_OBJECT
+class ILCore : public QObject {
+  Q_OBJECT
 
 public:
-    explicit                ILCore();
-    virtual                 ~ILCore();
+  explicit ILCore();
+  virtual ~ILCore();
 
-    static ILCore*          instance();
-    asio::io_service&       getService();
+  static ILCore* instance();
+  asio::io_service& getService();
 
 private:
-    static ILCore*          instance_;
-
-    asio::io_service        service_;
+  static ILCore* instance_;
+  asio::io_service service_;
 };
 
 } // namespace service

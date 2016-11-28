@@ -16,31 +16,29 @@ typedef std::shared_ptr<ILBenchmark> ILBenchmarkPtr;
 typedef QHash<quint64, ILOperationPtr> OpList;
 typedef QList<ILBenchmarkPtr> BenchList;
 
-class ILManager : public QObject
-{
-    Q_OBJECT
+class ILManager : public QObject {
+  Q_OBJECT
 
 public:
-                            ILManager();
-    virtual                 ~ILManager();
+  ILManager();
+  virtual ~ILManager();
+  static ILManager* instance();
 
-    static ILManager*       instance();
+  quint64 addOperation(ILOperationPtr op);
+  ILOperationPtr getOperation(quint64 id) const;
+  void removeOperation(quint64 id);
 
-    quint64                 addOperation(ILOperationPtr op);
-    ILOperationPtr          getOperation(quint64 id) const;
-    void                    removeOperation(quint64 id);
-
-    void                    addBenchmark(ILBenchmarkPtr bench);
-    void                    removeBenchmark(ILBenchmarkPtr bench);
-    ILBenchmarkPtr          getBenchmark(int index) const;
-    ILBenchmarkPtr          getBenchmark(const QString& name) const;
-    int                     benchmarkCount() const;
+  void addBenchmark(ILBenchmarkPtr bench);
+  void removeBenchmark(ILBenchmarkPtr bench);
+  ILBenchmarkPtr getBenchmark(int index) const;
+  ILBenchmarkPtr getBenchmark(const QString& name) const;
+  int benchmarkCount() const;
 
 private:
-    static ILManager*       instance_;
-    OpList                  opList_;
-    quint64                 opId_;
-    BenchList               benchList_;
+  static ILManager* instance_;
+  OpList opList_;
+  quint64 opId_;
+  BenchList benchList_;
 };
 
 } // namespace service
