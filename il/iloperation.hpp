@@ -2,7 +2,6 @@
 #define ILOPERATION_HPP
 
 #include "ilstate.hpp"
-#include <QObject>
 #include <memory>
 
 namespace il {
@@ -10,9 +9,7 @@ namespace il {
 class ILOperation;
 typedef std::shared_ptr<ILOperation> ILOperationPtr;
 
-class ILOperation : public QObject {
-  Q_OBJECT
-
+class ILOperation {
 public:
   ILOperation();
   ~ILOperation();

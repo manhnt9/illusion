@@ -2,14 +2,11 @@
 #define ILCORE_HPP
 
 #include <asio.hpp>
-#include <QObject>
 
 namespace il {
 namespace service {
 
-class ILCore : public QObject {
-  Q_OBJECT
-
+class ILCore {
 public:
   explicit ILCore();
   virtual ~ILCore();

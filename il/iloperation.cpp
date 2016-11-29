@@ -3,8 +3,7 @@
 namespace il {
 
 ILOperation::ILOperation()
-  :  QObject(nullptr),
-     id_(0),
+  :  id_(0),
      state_(ILState::CREATED),
      startTime_(0),
      finishTime_(0)

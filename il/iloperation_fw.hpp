@@ -2,7 +2,7 @@
 #define ILOPERATIONFW_HPP
 
 namespace il {
-  class ILOperation;
+class ILOperation;
 } // namespace il
 
 #endif // ILOPERATIONFW_HPP

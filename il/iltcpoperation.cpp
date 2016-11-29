@@ -5,8 +5,7 @@
 namespace il {
 
 ILTcpOperation::ILTcpOperation()
-  :  ILOperation(),
-     socket_(nullptr),
+  :  socket_(nullptr),
      bytesSent_(0),
      bytesReceived_(0)
 {

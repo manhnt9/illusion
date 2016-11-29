@@ -2,7 +2,7 @@
 #define ILTCPOPERATIONFW_HPP
 
 namespace il {
-  class ILTcpOperation;
+class ILTcpOperation;
 } // namespace il
 
 #endif // ILTCPOPERATIONFW_HPP

@@ -9,9 +9,7 @@ namespace il {
 
 typedef asio::ip::tcp::socket ILTcpSocket;
 
-class ILTcpOperation : public ILOperation {
-  Q_OBJECT
-
+class ILTcpOperation {
 public:
   explicit ILTcpOperation();
   ~ILTcpOperation();
