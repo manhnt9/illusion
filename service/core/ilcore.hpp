@@ -11,10 +11,10 @@ public:
   explicit ILCore();
   virtual ~ILCore();
 
-  static ILCore* instance();
-  asio::io_service& service();
+  static auto instance();
+  auto& service();
 
-  std::uint64_t time() const;
+  auto time() const;
 
 private:
   static ILCore* instance_;
