@@ -1,7 +1,7 @@
 #ifndef ILOPERATION_HPP
 #define ILOPERATION_HPP
 
-#include "ilstate.hpp"
+#include "ilstate_fw.hpp"
 #include "ilsignal.hpp"
 #include <memory>
 
@@ -35,7 +35,7 @@ protected:
   virtual void finish() final;
 
   std::uint64_t id_;
-  ILState state_;
+  il::state state_;
   std::uint64_t startTime_;
   std::uint64_t finishTime_;
 };

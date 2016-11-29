@@ -3,7 +3,7 @@
 
 namespace il {
 
-enum class ILState {
+enum class state {
   CREATED,
   RUNNING,
   TIMEOUT,
