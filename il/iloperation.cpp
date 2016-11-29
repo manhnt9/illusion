@@ -1,4 +1,5 @@
 #include "iloperation.hpp"
+#include <service/ilservice.hpp>
 
 namespace il {
 
@@ -10,6 +11,18 @@ ILOperation::ILOperation()
 {
 
 }
+
+void ILOperation::start() {
+  state_ = il::ILState::RUNNING;
+  startTime_ = IL_GET_SERVICE(ILCORE)->time(); 
+}
+
+void ILOperation::finish() {
+  state_ = il::ILState::FINISHED;
+  finishTime_ = IL_GET_SERVICE(ILCORE)->time();
+  // TODO: implement signal slot emit finished(id_);
+}
+
 
 ILOperation::~ILOperation()
 {

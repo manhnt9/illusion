@@ -12,7 +12,9 @@ public:
   virtual ~ILCore();
 
   static ILCore* instance();
-  asio::io_service& getService();
+  asio::io_service& service();
+
+  std::uint64_t time() const;
 
 private:
   static ILCore* instance_;

@@ -3,17 +3,6 @@
 
 namespace il {
 
-inline void ILOperation::start() {
-  state_ = il::ILState::RUNNING;
-  // TODO: fix get time startTime_ = QDateTime::currentMSecsSinceEpoch();
-}
-
-inline void ILOperation::finish() {
-  state_ = il::ILState::FINISHED;
-  // TODO: fix get time finishTime_ = QDateTime::currentMSecsSinceEpoch();
-  // TODO: implement signal slot emit finished(id_);
-}
-
 inline void ILOperation::setId(std::uint64_t id) {
   id_ = id;
 }

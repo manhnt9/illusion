@@ -11,7 +11,7 @@ inline ILCore* ILCore::instance() {
   return instance_;
 }
 
-inline asio::io_service& ILCore::getService() {
+inline asio::io_service& ILCore::service() {
   return service_;
 }
 

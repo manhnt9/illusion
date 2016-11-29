@@ -15,7 +15,7 @@ ILTcpOperation::ILTcpOperation()
 
 void ILTcpOperation::connect(const asio::ip::tcp::endpoint& endpoint) {
   if (!socket_)
-    socket_ = std::make_unique<ILTcpSocket>(IL_GET_SERVICE(ILCORE)->getService());
+    socket_ = std::make_unique<ILTcpSocket>(IL_GET_SERVICE(ILCORE)->service());
 
   start();
 
