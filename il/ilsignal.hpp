@@ -23,6 +23,12 @@ public:
     return slotId_++;
   }
 
+  template <typename F, typename... A>
+  auto connectMemFun(F&& memFun, A&& ... args) {
+    slots_.insert({slotId_, std::bind(memFun, args...)});
+    return slotId_++;
+  }
+
   void disconnect(std::uint16_t slotId) {
     slots_.erase(slotId);
   }
