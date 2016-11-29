@@ -16,7 +16,7 @@ public:
 
   virtual void run() = 0;
 
-  void setId(quint64 id);
+  void setId(std::uint64_t id);
 
   auto id() const;
   auto state() const;
@@ -24,8 +24,7 @@ public:
   auto finishTime() const;
   auto duration() const;
 
-signals:
-  void finished(quint32 id);
+  //void finished(quint32 id);
 
 protected:
   void start();

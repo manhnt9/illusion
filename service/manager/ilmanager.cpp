@@ -7,13 +7,12 @@ namespace service {
 ILManager* ILManager::instance_ = nullptr;
 
 ILManager::ILManager()
-  :  QObject(nullptr),
-     opId_(0)
+  :  opId_(0)
 {
 
 }
 
-ILBenchmarkPtr ILManager::getBenchmark(const QString &name) const {
+ILBenchmarkPtr ILManager::getBenchmark(const std::string& name) const {
 //    for (const auto& b : benchList_) {
 //        if (b->name() == name)
 //            return b;

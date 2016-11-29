@@ -1,22 +1,20 @@
 #ifndef ILOPERATION_IPP
 #define ILOPERATION_IPP
 
-#include <QDateTime>
-
 namespace il {
 
 inline void ILOperation::start() {
   state_ = il::ILState::RUNNING;
-  startTime_ = QDateTime::currentMSecsSinceEpoch();
+  // TODO: fix get time startTime_ = QDateTime::currentMSecsSinceEpoch();
 }
 
 inline void ILOperation::finish() {
   state_ = il::ILState::FINISHED;
-  finishTime_ = QDateTime::currentMSecsSinceEpoch();
-  emit finished(id_);
+  // TODO: fix get time finishTime_ = QDateTime::currentMSecsSinceEpoch();
+  // TODO: implement signal slot emit finished(id_);
 }
 
-inline void ILOperation::setId(quint64 id) {
+inline void ILOperation::setId(std::uint64_t id) {
   id_ = id;
 }
 
