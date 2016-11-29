@@ -1,7 +1,6 @@
 #ifndef ILMANAGER_IPP
 #define ILMANAGER_IPP
 
-#include <algorithm>
 
 namespace il {
 namespace service {
@@ -32,10 +31,6 @@ inline void ILManager::addBenchmark(ILBenchmarkPtr bench) {
 
 inline ILBenchmarkPtr ILManager::getBenchmark(int index) const {
   return benchList_.at(index);
-}
-
-inline void ILManager::removeBenchmark(ILBenchmarkPtr bench) {
-  benchList_.erase(std::remove(benchList_.begin(), benchList_.end(), bench), benchList_.end());
 }
 
 inline int ILManager::benchmarkCount() const {

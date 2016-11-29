@@ -1,5 +1,6 @@
 #include "ilmanager.hpp"
 //#include "../../benchmark/ilbenchmark.hpp"
+#include <algorithm>
 
 namespace il {
 namespace service {
@@ -18,6 +19,10 @@ ILBenchmarkPtr ILManager::getBenchmark(const std::string& name) const {
 //            return b;
 //    }
   return nullptr;
+}
+
+void ILManager::removeBenchmark(ILBenchmarkPtr bench) {
+  benchList_.erase(std::remove(benchList_.begin(), benchList_.end(), bench), benchList_.end());
 }
 
 ILManager::~ILManager() {
