@@ -27,6 +27,10 @@ inline auto ILOperation::duration() const {
   return finishTime_ - startTime_;
 }
 
+inline auto& ILOperation::sigFinished() {
+  return sigFinished_;
+}
+
 } // namespace il
 
 #endif // ILOPERATION_IPP

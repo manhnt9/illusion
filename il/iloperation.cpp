@@ -20,7 +20,7 @@ void ILOperation::start() {
 void ILOperation::finish() {
   state_ = il::ILState::FINISHED;
   finishTime_ = IL_GET_SERVICE(ILCORE)->time();
-  // TODO: implement signal slot emit finished(id_);
+  sigFinished_.emit(id_);
 }
 
 

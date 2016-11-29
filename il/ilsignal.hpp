@@ -6,25 +6,25 @@
 
 namespace il {
 
-template <typename... Args>
+template <typename ...Args>
 class ILSignal {
 public:
   ILSignal() : slotId_(0) { }
   ILSignal(const ILSignal& other) = delete;
   ILSignal& operator=(const ILSignal& other) = delete;
 
-  void emit(Args... params) {
+  void emit(Args... args) {
     for (const auto& it : slots_)
-      it.second(params...);
+      it.second(args...);
   }
-  
+
   auto connect(const std::function<void(Args...)>& slot) {
     slots_.insert({slotId_, slot});
     return slotId_++;
   }
 
-  template <typename F, typename... A>
-  auto connectMemFun(F&& memFun, A&& ... args) {
+  template <typename F, typename ...A>
+  auto connectMemFun(F&& memFun, A&&... args) {
     slots_.insert({slotId_, std::bind(memFun, args...)});
     return slotId_++;
   }
@@ -46,3 +46,4 @@ private:
 } // namespace il
 
 #endif // ILSIGNAL_HPP
+

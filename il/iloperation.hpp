@@ -25,11 +25,14 @@ public:
   auto finishTime() const;
   auto duration() const;
 
-  //void finished(quint32 id);
+  auto& sigFinished();
+
+private:
+  ILSignal<std::uint64_t> sigFinished_;
 
 protected:
-  void start();
-  void finish();
+  virtual void start() final;
+  virtual void finish() final;
 
   std::uint64_t id_;
   ILState state_;
