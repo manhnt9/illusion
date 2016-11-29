@@ -5,6 +5,7 @@
 #include <memory>
 
 namespace il {
+
 enum class modifier_type;
 
 class ILModifier {

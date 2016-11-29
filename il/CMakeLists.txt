@@ -1,9 +1,10 @@
 add_library(il ilprint.hpp ilstate.hpp
                ilsignal.hpp
-               iloperation.cpp iloperation.hpp iloperation.ipp
-               iltcpoperation.cpp iltcpoperation.hpp iltcpoperation.ipp
-               ilclient.cpp ilclient.hpp ilclient.ipp
-               ilmodifier.cpp ilmodifier.hpp ilmodifier.ipp)
+               iloperation.cpp iloperation.hpp iloperation.ipp iloperation_fw.hpp
+               iltcpoperation.cpp iltcpoperation.hpp iltcpoperation.ipp iltcpoperation_fw.hpp
+               ilclient.cpp ilclient.hpp ilclient.ipp ilclient_fw.hpp
+               modifier/ilmodifier_type.hpp
+               modifier/ilmodifier.cpp modifier/ilmodifier.hpp modifier/ilmodifier.ipp modifier/ilmodifier_fw.hpp)
                    
 
 target_include_directories(il PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

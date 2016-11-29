@@ -1,12 +1,12 @@
 #ifndef ILOPERATION_HPP
 #define ILOPERATION_HPP
 
-#include "ilstate_fw.hpp"
 #include "ilsignal.hpp"
 #include <memory>
 
 namespace il {
 
+enum class state;
 class ILOperation;
 typedef std::shared_ptr<ILOperation> ILOperationPtr;
 

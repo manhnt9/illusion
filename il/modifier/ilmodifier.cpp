@@ -1,4 +1,5 @@
 #include "ilmodifier.hpp"
+#include "ilmodifier_type.hpp"
 
 namespace il {
 
