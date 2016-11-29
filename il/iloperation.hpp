@@ -2,6 +2,7 @@
 #define ILOPERATION_HPP
 
 #include "ilstate.hpp"
+#include "ilsignal.hpp"
 #include <memory>
 
 namespace il {
