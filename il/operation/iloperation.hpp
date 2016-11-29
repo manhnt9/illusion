@@ -1,7 +1,7 @@
 #ifndef ILOPERATION_HPP
 #define ILOPERATION_HPP
 
-#include "ilsignal.hpp"
+#include <ilsignal.hpp>
 #include <memory>
 
 namespace il {

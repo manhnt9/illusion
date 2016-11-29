@@ -13,3 +13,4 @@ enum class modifier_type {
 
 
 #endif // ILMODIFIERTYPE_HPP
+
