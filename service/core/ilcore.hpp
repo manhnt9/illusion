@@ -8,8 +8,8 @@ namespace service {
 
 class ILCore {
 public:
-  explicit ILCore();
-  virtual ~ILCore();
+  ILCore();
+  ~ILCore();
 
   static auto instance();
   auto& service();

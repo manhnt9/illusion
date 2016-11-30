@@ -12,7 +12,7 @@ enum class state;
 class ILOperation {
 public:
   ILOperation();
-  ~ILOperation();
+  virtual ~ILOperation();
 
   virtual void run() = 0;
 

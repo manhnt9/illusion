@@ -11,8 +11,8 @@ typedef asio::ip::tcp::socket ILTcpSocket;
 
 class ILTcpOperation : public ILOperation {
 public:
-  explicit ILTcpOperation();
-  ~ILTcpOperation();
+  ILTcpOperation();
+  virtual ~ILTcpOperation();
   
   void connect(const asio::ip::tcp::endpoint& endpoint);
 
