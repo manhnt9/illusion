@@ -13,19 +13,22 @@ class ILTcpOperation : public ILOperation {
 public:
   ILTcpOperation();
   virtual ~ILTcpOperation();
-  
-  void connect();
 
+  virtual void run();
+  
   auto bytesSent() const;
   auto bytesReceived() const;
 
 private:
+  void connect();
   virtual void onConnect(const std::error_code& e);
 
   virtual void write() = 0;
+  virtual void onWrite(const std::error_code& e, const std::size_t& bytes) = 0;
   virtual void read() = 0;
+  virtual void onRead(const std::error_code& e, const std::size_t& bytes) = 0;
 
-protected:
+private:
   std::unique_ptr<ILTcpSocket> socket_;
 
   std::size_t bytesSent_;
