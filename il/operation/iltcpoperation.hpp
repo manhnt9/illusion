@@ -14,7 +14,7 @@ public:
   ILTcpOperation();
   virtual ~ILTcpOperation();
   
-  void connect(const asio::ip::tcp::endpoint& endpoint);
+  void connect();
 
   auto bytesSent() const;
   auto bytesReceived() const;

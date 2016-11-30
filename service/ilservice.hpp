@@ -3,6 +3,7 @@
 
 #define IL_HAS_SERVICE_ILCORE
 #define IL_HAS_SERVICE_ILMANAGER
+#define IL_HAS_SERVICE_ILCONFIGURATION
 
 #define IL_GET_SERVICE(name) IL_GET_SERVICE_##name
 
@@ -27,6 +28,14 @@ namespace service {
 #define IL_GET_SERVICE_ILMANAGER il::service::ILManager::instance()
 #else
 #define IL_GET_SERVICE_ILMANAGER static_assert(0, "Service ILManager is not registered")
+#endif
+
+#include "configuration/ilconfiguration.hpp"
+
+#ifdef IL_HAS_SERVICE_ILCONFIGURATION
+#define IL_GET_SERVICE_ILCONFIGURATION il::service::ILConfiguration::instance()
+#else
+#define IL_GET_SERVICE_ILCONFIGURATION static_assert(0, "Service ILConfiguration is not registered")
 #endif
 
 #endif // ILSERVICE_HPP

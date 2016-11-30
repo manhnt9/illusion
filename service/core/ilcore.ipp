@@ -9,7 +9,6 @@ namespace service {
 inline auto ILCore::instance() {
   if (!instance_)
     instance_ = new ILCore();
-
   return instance_;
 }
 
