@@ -2,6 +2,7 @@
 #define ILMODIFIER_HPP
 
 #include <ilclient_fw.hpp>
+#include <iltime.hpp>
 #include <memory>
 #include <vector>
 
@@ -19,9 +20,14 @@ public:
 
   virtual void apply() = 0;
 
+  auto type() const;
+  void setTime(const time_point time);
+  auto time() const;
+
 private:
-  modifier_type type_;
   std::vector<std::weak_ptr<ILClient>> clients_;
+  modifier_type type_;
+  time_point time_;
 };
 
 } // namespace il
