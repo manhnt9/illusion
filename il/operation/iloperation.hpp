@@ -1,14 +1,13 @@
 #ifndef ILOPERATION_HPP
 #define ILOPERATION_HPP
 
+#include <iltime.hpp>
 #include <ilsignal.hpp>
 #include <memory>
 
 namespace il {
 
 enum class state;
-class ILOperation;
-typedef std::shared_ptr<ILOperation> ILOperationPtr;
 
 class ILOperation {
 public:
@@ -36,8 +35,8 @@ protected:
 
   std::uint64_t id_;
   il::state state_;
-  std::uint64_t startTime_;
-  std::uint64_t finishTime_;
+  time_point startTime_;
+  time_point finishTime_;
 };
 
 } // namespace il

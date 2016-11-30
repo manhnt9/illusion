@@ -1,5 +1,5 @@
 add_library(il ilprint.hpp ilstate.hpp
-               ilsignal.hpp
+               iltime.hpp ilsignal.hpp
                operation/iloperation.cpp operation/iloperation.hpp operation/iloperation.ipp operation/iloperation_fw.hpp
                operation/iltcpoperation.cpp operation/iltcpoperation.hpp operation/iltcpoperation.ipp operation/iltcpoperation_fw.hpp
                ilclient.cpp ilclient.hpp ilclient.ipp ilclient_fw.hpp

@@ -14,6 +14,8 @@ public:
   void start();
   void stop();
 
+  void setOperation(std::unique_ptr<ILOperation>& op);
+
 private:
   std::unique_ptr<ILOperation> operation_;
 };
