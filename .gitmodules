@@ -1,3 +1,6 @@
 [submodule "external/catch"]
 	path = external/catch
 	url = https://github.com/philsquared/Catch.git
+[submodule "external/trompeloeil"]
+	path = external/trompeloeil
+	url = https://github.com/rollbear/trompeloeil.git
