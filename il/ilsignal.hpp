@@ -6,7 +6,7 @@
 
 namespace il {
 
-template <typename ...Args>
+template <class ...Args>
 class ILSignal {
 public:
   ILSignal() : slotId_(0) { }
@@ -23,7 +23,7 @@ public:
     return slotId_++;
   }
 
-  template <typename F, typename ...A>
+  template <class F, class ...A>
   auto connectMemFun(F&& memFun, A&&... args) {
     slots_.insert({slotId_, std::bind(memFun, args...)});
     return slotId_++;
