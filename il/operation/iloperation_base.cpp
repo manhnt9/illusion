@@ -13,6 +13,10 @@ ILOperationBase::ILOperationBase()
 
 }
 
+bool ILOperationBase::isFinished() const {
+  return state_ == il::ilstate::FINISHED;
+}
+
 void ILOperationBase::start() {
   state_ = il::ilstate::RUNNING;
   startTime_ = IL_GET_SERVICE(ILCORE)->time(); 

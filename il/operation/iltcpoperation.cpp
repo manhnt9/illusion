@@ -5,7 +5,7 @@
 namespace il {
 
 ILTcpOperation::ILTcpOperation()
-  :  ILOperation(),
+  :  ILOperationBase(),
      socket_(nullptr),
      bytesSent_(0),
      bytesReceived_(0)
@@ -26,7 +26,7 @@ void ILTcpOperation::connect() {
     onConnect(std::error_code());
   else
     socket_->async_connect(ep, std::bind(&ILTcpOperation::onConnect,
-                                                 this, std::placeholders::_1));
+                                         this, std::placeholders::_1));
 }
 
 ILTcpOperation::~ILTcpOperation()

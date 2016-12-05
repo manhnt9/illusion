@@ -19,6 +19,7 @@ public:
 
   void setId(std::uint64_t id);
 
+  bool isFinished() const;
   std::uint64_t id() const;
   ilstate state() const;
   iltime startTime() const;

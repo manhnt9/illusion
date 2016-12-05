@@ -1,7 +1,7 @@
 #ifndef ILTCPOPERATION_HPP
 #define ILTCPOPERATION_HPP
 
-#include "iloperation.hpp"
+#include "iloperation_base.hpp"
 #include <asio.hpp>
 #include <memory>
 
@@ -9,7 +9,7 @@ namespace il {
 
 typedef asio::ip::tcp::socket ILTcpSocket;
 
-class ILTcpOperation : public ILOperation {
+class ILTcpOperation : public ILOperationBase {
 public:
   ILTcpOperation();
   virtual ~ILTcpOperation();

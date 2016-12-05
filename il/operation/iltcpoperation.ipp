@@ -1,8 +1,7 @@
 #ifndef ILTCPOPERATION_IPP
 #define ILTCPOPERATION_IPP
 
-#include "ilprint.hpp"
-#include "iloperation.hpp"
+#include <ilprint.hpp>
 
 namespace il {
 

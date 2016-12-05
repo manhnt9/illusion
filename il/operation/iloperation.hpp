@@ -1,5 +1,5 @@
-#ifndef ILTCPOPERATION_HPP
-#define ILTCPOPERATION_HPP
+#ifndef ILOPERATION_HPP
+#define ILOPERATION_HPP
 
 #include <iltime.hpp>
 
@@ -11,6 +11,7 @@ class ILOperation {
 public:
   virtual void run() = 0;
 
+  virtual bool isFinished() const = 0;
   virtual std::uint64_t id() const = 0;
   virtual ilstate state() const = 0;
   virtual iltime startTime() const = 0;
@@ -20,4 +21,5 @@ public:
 
 } // namespace il
 
-#endif // ILTCPOPERATION_HPP
+#endif // ILOPERATION_HPP
+
