@@ -11,7 +11,7 @@ inline auto ILModifier::type() const {
   return type_;
 }
 
-inline void ILModifier::setTime(const time_point time) {
+inline void ILModifier::setTime(const iltime time) {
   time_ = time;
 }
 

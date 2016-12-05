@@ -1,31 +1,31 @@
-#include "iloperation.hpp"
+#include "iloperation_base.hpp"
 #include "ilstate.hpp"
 #include <service/ilservice.hpp>
 
 namespace il {
 
-ILOperation::ILOperation()
+ILOperationBase::ILOperationBase()
   :  id_(0),
-     state_(il::state::CREATED),
+     state_(il::ilstate::CREATED),
      startTime_(0),
      finishTime_(0)
 {
 
 }
 
-void ILOperation::start() {
-  state_ = il::state::RUNNING;
+void ILOperationBase::start() {
+  state_ = il::ilstate::RUNNING;
   startTime_ = IL_GET_SERVICE(ILCORE)->time(); 
 }
 
-void ILOperation::finish() {
-  state_ = il::state::FINISHED;
+void ILOperationBase::finish() {
+  state_ = il::ilstate::FINISHED;
   finishTime_ = IL_GET_SERVICE(ILCORE)->time();
   sigFinished_.emit(id_);
 }
 
 
-ILOperation::~ILOperation()
+ILOperationBase::~ILOperationBase()
 {
 
 }

@@ -1,8 +1,8 @@
 add_library(il ilprint.hpp ilstate.hpp
                iltime.hpp ilsignal.hpp
-               operation/iloperation.cpp operation/iloperation.hpp operation/iloperation.ipp operation/iloperation_fw.hpp
-               operation/iltcpoperation.cpp operation/iltcpoperation.hpp operation/iltcpoperation.ipp operation/iltcpoperation_fw.hpp
-               ilclient.cpp ilclient.hpp ilclient.ipp ilclient_fw.hpp
+               operation/iloperation_base.cpp operation/iloperation_base.hpp operation/iloperation_base.ipp operation/iloperation_fw.hpp
+               #operation/iltcpoperation.cpp operation/iltcpoperation.hpp operation/iltcpoperation.ipp operation/iltcpoperation_fw.hpp
+               #ilclient.cpp ilclient.hpp ilclient.ipp ilclient_fw.hpp
                modifier/ilmodifier_type.hpp
                modifier/ilmodifier.cpp modifier/ilmodifier.hpp modifier/ilmodifier.ipp modifier/ilmodifier_fw.hpp)
 

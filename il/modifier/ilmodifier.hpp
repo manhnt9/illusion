@@ -21,13 +21,13 @@ public:
   virtual void apply() = 0;
 
   auto type() const;
-  void setTime(const time_point time);
+  void setTime(const iltime time);
   auto time() const;
 
 private:
   std::vector<std::weak_ptr<ILClient>> clients_;
   modifier_type type_;
-  time_point time_;
+  iltime time_;
 };
 
 } // namespace il

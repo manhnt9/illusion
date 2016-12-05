@@ -4,7 +4,7 @@
 #include <cstdint>
 
 namespace il {
-typedef std::uint64_t time_point;
+typedef std::uint64_t iltime;
 } // namespace il
 
 #endif // ILTIME_HPP
