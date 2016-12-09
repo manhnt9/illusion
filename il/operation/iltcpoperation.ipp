@@ -6,15 +6,7 @@
 namespace il {
 
 inline void ILTcpOperation::run() {
-  connect();
-}
 
-inline void ILTcpOperation::onConnect(const std::error_code& e) {
-  if (!e) {
-      write();
-  } else {
-      IL_PRINT << "Connection error: " << e.message();
-  }
 }
 
 inline auto ILTcpOperation::bytesSent() const {

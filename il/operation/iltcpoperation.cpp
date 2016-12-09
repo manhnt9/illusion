@@ -22,11 +22,8 @@ void ILTcpOperation::connect() {
 
   start();
 
-  if (socket_->is_open())
-    onConnect(std::error_code());
-  else
-    socket_->async_connect(ep, std::bind(&ILTcpOperation::onConnect,
-                                         this, std::placeholders::_1));
+  if (socket_->is_open() == false)
+    socket_->connect(ep);
 }
 
 ILTcpOperation::~ILTcpOperation()
