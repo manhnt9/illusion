@@ -3,14 +3,6 @@
 
 namespace il {
 
-inline void ILOperationBase::setId(std::uint64_t id) {
-  id_ = id;
-}
-
-inline std::uint64_t ILOperationBase::id() const {
-  return id_;
-}
-
 inline ilstate ILOperationBase::state() const {
   return state_;
 }

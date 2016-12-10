@@ -5,8 +5,7 @@
 namespace il {
 
 ILOperationBase::ILOperationBase()
-  :  id_(0),
-     state_(il::ilstate::CREATED),
+  :  state_(il::ilstate::CREATED),
      startTime_(0),
      stopTime_(0)
 {

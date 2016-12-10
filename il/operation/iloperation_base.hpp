@@ -17,10 +17,7 @@ public:
 
   virtual void run() = 0;
 
-  void setId(std::uint64_t id);
-
   bool isRunning() const;
-  std::uint64_t id() const;
   ilstate state() const;
   iltime startTime() const;
   iltime stopTime() const;
@@ -30,7 +27,6 @@ protected:
   virtual void start() final;
   virtual void stop() final;
 
-  std::uint64_t id_;
   ilstate state_;
   iltime startTime_;
   iltime stopTime_;
