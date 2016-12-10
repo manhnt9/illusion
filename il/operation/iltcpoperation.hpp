@@ -15,10 +15,12 @@ public:
   virtual ~ILTcpOperation();
 
   virtual void run();
-  
+
+  auto isConnected() const;
+
   auto bytesSent() const;
   auto bytesReceived() const;
-
+  
 private:
   void connect();
   void write();

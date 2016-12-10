@@ -13,6 +13,14 @@ ILTcpOperation::ILTcpOperation()
 
 }
 
+void ILTcpOperation::run() {
+  start();
+  connect();
+  write();
+  read();
+  stop();
+}
+
 void ILTcpOperation::connect() {
   auto conf = IL_GET_SERVICE(ILCONFIGURATION);
   const asio::ip::tcp::endpoint ep(asio::ip::address_v4::from_string(conf->host()), conf->port());
@@ -20,14 +28,11 @@ void ILTcpOperation::connect() {
   if (!socket_)
     socket_ = std::make_unique<ILTcpSocket>(IL_GET_SERVICE(ILCORE)->service());
 
-  start();
-
   if (socket_->is_open() == false)
     socket_->connect(ep);
 }
 
-ILTcpOperation::~ILTcpOperation()
-{
+ILTcpOperation::~ILTcpOperation() {
 
 }
 

@@ -1,12 +1,10 @@
 #ifndef ILTCPOPERATION_IPP
 #define ILTCPOPERATION_IPP
 
-#include <ilprint.hpp>
-
 namespace il {
 
-inline void ILTcpOperation::run() {
-
+inline auto ILTcpOperation::isConnected() const {
+  return socket_->is_open();
 }
 
 inline auto ILTcpOperation::bytesSent() const {
