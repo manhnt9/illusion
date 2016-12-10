@@ -19,26 +19,21 @@ public:
 
   void setId(std::uint64_t id);
 
-  bool isFinished() const;
+  bool isRunning() const;
   std::uint64_t id() const;
   ilstate state() const;
   iltime startTime() const;
-  iltime finishTime() const;
+  iltime stopTime() const;
   iltime duration() const;
-
-  auto& sigFinished();
-
-private:
-  ILSignal<std::uint64_t> sigFinished_;
 
 protected:
   virtual void start() final;
-  virtual void finish() final;
+  virtual void stop() final;
 
   std::uint64_t id_;
   ilstate state_;
   iltime startTime_;
-  iltime finishTime_;
+  iltime stopTime_;
 };
 
 } // namespace il

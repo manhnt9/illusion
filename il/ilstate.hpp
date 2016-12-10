@@ -8,7 +8,7 @@ enum class ilstate {
   RUNNING,
   TIMEOUT,
   FAILED,
-  FINISHED
+  STOPPED 
 };
 
 } // namespace il

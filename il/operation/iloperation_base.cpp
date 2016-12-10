@@ -8,13 +8,13 @@ ILOperationBase::ILOperationBase()
   :  id_(0),
      state_(il::ilstate::CREATED),
      startTime_(0),
-     finishTime_(0)
+     stopTime_(0)
 {
 
 }
 
-bool ILOperationBase::isFinished() const {
-  return state_ == il::ilstate::FINISHED;
+bool ILOperationBase::isRunning() const {
+  return state_ == il::ilstate::RUNNING;
 }
 
 void ILOperationBase::start() {
@@ -22,15 +22,12 @@ void ILOperationBase::start() {
   startTime_ = IL_GET_SERVICE(ILCORE)->time(); 
 }
 
-void ILOperationBase::finish() {
-  state_ = il::ilstate::FINISHED;
-  finishTime_ = IL_GET_SERVICE(ILCORE)->time();
-  sigFinished_.emit(id_);
+void ILOperationBase::stop() {
+  state_ = il::ilstate::STOPPED;
+  stopTime_ = IL_GET_SERVICE(ILCORE)->time();
 }
 
-
-ILOperationBase::~ILOperationBase()
-{
+ILOperationBase::~ILOperationBase() {
 
 }
 

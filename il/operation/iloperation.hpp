@@ -11,11 +11,11 @@ class ILOperation {
 public:
   virtual void run() = 0;
 
-  virtual bool isFinished() const = 0;
+  virtual bool isRunning() const = 0;
   virtual std::uint64_t id() const = 0;
   virtual ilstate state() const = 0;
   virtual iltime startTime() const = 0;
-  virtual iltime finishTime() const = 0;
+  virtual iltime stopTime() const = 0;
   virtual iltime duration() const = 0;
 };
 

@@ -19,16 +19,12 @@ inline iltime ILOperationBase::startTime() const {
   return startTime_;
 }
 
-inline iltime ILOperationBase::finishTime() const {
-  return finishTime_;
+inline iltime ILOperationBase::stopTime() const {
+  return stopTime_;
 }
 
 inline iltime ILOperationBase::duration() const {
-  return finishTime_ - startTime_;
-}
-
-inline auto& ILOperationBase::sigFinished() {
-  return sigFinished_;
+  return stopTime_ - startTime_;
 }
 
 } // namespace il

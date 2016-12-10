@@ -14,7 +14,10 @@ public:
   void start();
   void stop();
 
+  auto isRunning() const;
+
   void setOperation(std::unique_ptr<ILOperation>& op);
+  const auto& operation() const;
 
 private:
   std::unique_ptr<ILOperation> operation_;
