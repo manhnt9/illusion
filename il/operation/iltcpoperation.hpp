@@ -15,6 +15,7 @@ public:
   virtual ~ILTcpOperation();
 
   virtual void run();
+  virtual void abort();
 
   auto isConnected() const;
 

@@ -21,6 +21,11 @@ void ILTcpOperation::run() {
   stop();
 }
 
+void ILTcpOperation::abort() {
+  socket_ = nullptr;
+  stop();
+}
+
 void ILTcpOperation::connect() {
   auto conf = IL_GET_SERVICE(ILCONFIGURATION);
   const asio::ip::tcp::endpoint ep(asio::ip::address_v4::from_string(conf->host()), conf->port());
