@@ -47,3 +47,4 @@ TEST_CASE_METHOD(ILOperationTestFixture, "ILOperation timer", "[ilop_timer]") {
   // allow less than 6ms difference
   REQUIRE(operation_->duration() == Approx(100).epsilon(0.01));
 }
+
