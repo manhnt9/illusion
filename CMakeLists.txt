@@ -16,6 +16,6 @@ add_subdirectory(test)
 
 add_custom_target(files SOURCES README.md)
 
-add_executable(illusion main.cpp)
-target_link_libraries(illusion ilservice il)
+#add_executable(illusion main.cpp)
+#target_link_libraries(illusion ilservice il)
 

@@ -18,7 +18,6 @@ Illusion is a framework for creating, running, examine server benchmarks
 ## Roadmap
 - In-progress: Re-design better codebase
 - In-progress: Document the code 
-- In-progress: Write unit tests
 - Need more benchmark ideas: multi-process? distributed?
 - Usage documentation
 
