@@ -16,6 +16,7 @@ public:
   virtual ~ILOperationBase();
 
   virtual void run() = 0;
+  virtual void abort() = 0;
 
   bool isRunning() const;
   ilstate state() const;
