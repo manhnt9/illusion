@@ -1,5 +1,6 @@
 add_executable(iltest iltest.cpp 
                       ilservice_test.cpp
+                      iloperation_dummy.hpp
                       iloperation_test.cpp)
 
 target_link_libraries(iltest PRIVATE il ilservice)
