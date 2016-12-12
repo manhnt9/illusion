@@ -3,8 +3,8 @@
 
 namespace il {
 
-inline const auto& ILClient::operation() const {
-  return *operation_;
+inline const auto ILClient::operation() const {
+  return operation_.get();
 }
 
 } // namespace il

@@ -15,9 +15,10 @@ public:
   void stop();
 
   auto isRunning() const;
+  auto state() const;
 
   void setOperation(std::unique_ptr<ILOperation>& op);
-  const auto& operation() const;
+  const auto operation() const;
 
 private:
   std::unique_ptr<ILOperation> operation_;
