@@ -22,14 +22,14 @@ void ILClient::stop() {
     operation_->abort();
 }
 
-auto ILClient::isRunning() const {
+bool ILClient::isRunning() const {
   if (operation_)
     return operation_->isRunning();
   else
     return false;
 }
 
-auto ILClient::state() const {
+ilstate ILClient::state() const {
   if (operation_)
     return operation_->state();
   else

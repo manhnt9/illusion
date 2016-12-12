@@ -2,7 +2,7 @@
 #define ILSTATE_HPP
 
 namespace il {
-enum class state;
+enum class ilstate;
 }
 
 #endif // ILSTATE_HPP
