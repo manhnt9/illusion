@@ -3,7 +3,7 @@ https://github.com/zer0-x/illusion
 
 (Under development project)
 
-Illusion is a framework for creating, running, examine server benchmarks
+Illusion is a framework for creating, running, examine server
 
 [Introduction Slide](https://docs.google.com/presentation/d/1vlX7XIfDVRmt7hW0SCheXTDnQxiafBOpPPRzjxwvbcY/edit?usp=sharing)
 
@@ -21,6 +21,6 @@ Illusion is a framework for creating, running, examine server benchmarks
 ## Roadmap
 - In-progress: Re-design better codebase
 - In-progress: Document the code 
-- Need more benchmark ideas: multi-process? distributed?
+- Need more ideas: multi-process, distributed,...
 - Usage documentation
 
