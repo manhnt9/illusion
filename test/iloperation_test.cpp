@@ -39,6 +39,9 @@ TEST_CASE_METHOD(ILOperationTestFixture, "ILOperation timer", "[ilop_timer]") {
   operation_->abort();
 
   // allow less than 6ms difference
+  REQUIRE(operation_->startTime() > 0);
+  REQUIRE(operation_->stopTime() > 0);
+  REQUIRE(operation_->stopTime() > operation_->startTime());
   REQUIRE(operation_->duration() == Approx(100).epsilon(0.01));
 }
 
