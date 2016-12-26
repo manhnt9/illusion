@@ -1,13 +1,16 @@
 #ifndef ILCLIENT_HPP
 #define ILCLIENT_HPP
 
-#include <operation/iloperation_fw.hpp>
-#include <memory>
 #include "ilstate_fw.hpp"
+#include <operation/iloperation_fw.hpp>
+#include <modifier/ilmodifier_fw.hpp>
+#include <memory>
 
 namespace il {
 
 class ILClient {
+  friend class ILModifier;
+
 public:
   ILClient();
   virtual ~ILClient();
