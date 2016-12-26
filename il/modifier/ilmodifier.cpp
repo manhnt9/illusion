@@ -10,13 +10,6 @@ ILModifier::ILModifier(const modifier_type type)
 
 }
 
-void ILModifier::removeClient(const std::shared_ptr<ILClient> client) {
-  clients_.erase(std::remove_if(clients_.begin(), clients_.end(),
-  [client] (const auto& c) {
-    return c.lock().get() == client.get(); 
-  }), clients_.end());
-}
-
 ILModifier::~ILModifier() {
 
 }

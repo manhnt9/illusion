@@ -15,8 +15,7 @@ public:
   ILModifier(const modifier_type type);
   virtual ~ILModifier();
 
-  void addClient(const std::shared_ptr<ILClient> client);
-  void removeClient(const std::shared_ptr<ILClient> client);
+  void setClient(const std::shared_ptr<ILClient> client);
 
   virtual void apply() = 0;
 
@@ -25,7 +24,7 @@ public:
   auto time() const;
 
 private:
-  std::vector<std::weak_ptr<ILClient>> clients_;
+  std::weak_ptr<ILClient> client_;
   modifier_type type_;
   iltime time_;
 };

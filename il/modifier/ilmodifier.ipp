@@ -3,8 +3,8 @@
 
 namespace il {
 
-inline void ILModifier::addClient(const std::shared_ptr<ILClient> client) {
-  clients_.push_back(client);
+inline void ILModifier::setClient(const std::shared_ptr<ILClient> client) {
+  client_ = client;
 }
 
 inline auto ILModifier::type() const {
