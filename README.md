@@ -1,11 +1,11 @@
 # Illusion
-https://github.com/zer0-x/illusion
+https://github.com/manhnt9/illusion
 
-(Under development project)
+(Under development project - ***unmaintained*** - if any companies want to make this your own technology, please contact)
 
 Illusion is a framework for creating, running, examine server
 
-[Introduction Slide](https://docs.google.com/presentation/d/1vlX7XIfDVRmt7hW0SCheXTDnQxiafBOpPPRzjxwvbcY/edit?usp=sharing)
+[Introduction Slides](https://docs.google.com/presentation/d/1vlX7XIfDVRmt7hW0SCheXTDnQxiafBOpPPRzjxwvbcY/edit?usp=sharing)
 
 ## Dependencies
 - A C++14 compiler
